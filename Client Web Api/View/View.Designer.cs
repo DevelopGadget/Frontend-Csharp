@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             System.Windows.Forms.Label label25;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.prbBarra = new System.Windows.Forms.ProgressBar();
             this.btnCargar = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@
             this.tboxuEscudo = new System.Windows.Forms.TextBox();
             this.tboxsEstadio = new System.Windows.Forms.TextBox();
             this.tboxsNombre = new System.Windows.Forms.TextBox();
+            this.lPb = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -71,6 +72,76 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadio)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Arial", 12F);
+            label25.Location = new System.Drawing.Point(31, 24);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(121, 18);
+            label25.TabIndex = 68;
+            label25.Text = "Id seleccionado:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial", 12F);
+            label6.Location = new System.Drawing.Point(604, 221);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(120, 18);
+            label6.TabIndex = 64;
+            label6.Text = "Foto del escudo";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 12F);
+            label5.Location = new System.Drawing.Point(350, 221);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(217, 18);
+            label5.TabIndex = 63;
+            label5.Text = "Foto del estadio donde reside";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 12F);
+            label4.Location = new System.Drawing.Point(191, 114);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(171, 18);
+            label4.TabIndex = 60;
+            label4.Text = "Url con foto del estadio:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 12F);
+            label3.Location = new System.Drawing.Point(397, 114);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(170, 18);
+            label3.TabIndex = 58;
+            label3.Text = "Url con foto del escudo:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 12F);
+            label2.Location = new System.Drawing.Point(359, 24);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(245, 18);
+            label2.TabIndex = 55;
+            label2.Text = "Nombre del estadio donde reside:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 12F);
+            label1.Location = new System.Drawing.Point(238, 24);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(68, 18);
+            label1.TabIndex = 52;
+            label1.Text = "Nombre:";
             // 
             // imageList1
             // 
@@ -155,16 +226,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_ClickAsync);
             // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new System.Drawing.Font("Arial", 12F);
-            label25.Location = new System.Drawing.Point(31, 24);
-            label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(121, 18);
-            label25.TabIndex = 68;
-            label25.Text = "Id seleccionado:";
-            // 
             // tboxsId
             // 
             this.tboxsId.Enabled = false;
@@ -243,26 +304,6 @@
             this.sEstadio.ReadOnly = true;
             this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial", 12F);
-            label6.Location = new System.Drawing.Point(604, 221);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(120, 18);
-            label6.TabIndex = 64;
-            label6.Text = "Foto del escudo";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial", 12F);
-            label5.Location = new System.Drawing.Point(350, 221);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(217, 18);
-            label5.TabIndex = 63;
-            label5.Text = "Foto del estadio donde reside";
-            // 
             // pbEscudo
             // 
             this.pbEscudo.Image = global::Client_Web_Api.Properties.Resources.sele;
@@ -293,16 +334,6 @@
             this.tboxuEstadio.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadio.TabIndex = 56;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 12F);
-            label4.Location = new System.Drawing.Point(191, 114);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(171, 18);
-            label4.TabIndex = 60;
-            label4.Text = "Url con foto del estadio:";
-            // 
             // tboxuEscudo
             // 
             this.tboxuEscudo.Font = new System.Drawing.Font("Arial", 10F);
@@ -310,16 +341,6 @@
             this.tboxuEscudo.Name = "tboxuEscudo";
             this.tboxuEscudo.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudo.TabIndex = 57;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial", 12F);
-            label3.Location = new System.Drawing.Point(397, 114);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(170, 18);
-            label3.TabIndex = 58;
-            label3.Text = "Url con foto del escudo:";
             // 
             // tboxsEstadio
             // 
@@ -329,16 +350,6 @@
             this.tboxsEstadio.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadio.TabIndex = 54;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial", 12F);
-            label2.Location = new System.Drawing.Point(359, 24);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(245, 18);
-            label2.TabIndex = 55;
-            label2.Text = "Nombre del estadio donde reside:";
-            // 
             // tboxsNombre
             // 
             this.tboxsNombre.Font = new System.Drawing.Font("Arial", 10F);
@@ -347,21 +358,22 @@
             this.tboxsNombre.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombre.TabIndex = 53;
             // 
-            // label1
+            // lPb
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial", 12F);
-            label1.Location = new System.Drawing.Point(238, 24);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(68, 18);
-            label1.TabIndex = 52;
-            label1.Text = "Nombre:";
+            this.lPb.AutoSize = true;
+            this.lPb.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPb.Location = new System.Drawing.Point(222, 433);
+            this.lPb.Name = "lPb";
+            this.lPb.Size = new System.Drawing.Size(175, 16);
+            this.lPb.TabIndex = 73;
+            this.lPb.Text = "Cargando Datos Por Favor Espere";
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.lPb);
             this.Controls.Add(this.btnElim);
             this.Controls.Add(this.btnMod);
             this.Controls.Add(this.tboxsBuscar);
@@ -422,6 +434,7 @@
         private System.Windows.Forms.TextBox tboxuEscudo;
         private System.Windows.Forms.TextBox tboxsEstadio;
         private System.Windows.Forms.TextBox tboxsNombre;
+        private System.Windows.Forms.Label lPb;
     }
 }
 

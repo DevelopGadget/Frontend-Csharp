@@ -2,6 +2,7 @@
 using Client_Web_Api.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Client_Web_Api
@@ -40,6 +41,8 @@ namespace Client_Web_Api
                 if (string.IsNullOrEmpty(tboxsBuscar.Text))
                 {
                     MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Tablas(await Equipos.Read());
+                    Progress();
                 }
                 else if (await Equipos.Read(tboxsBuscar.Text) == null)
                 {
@@ -55,6 +58,8 @@ namespace Client_Web_Api
             catch (Exception)
             {
                 MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Tablas(await Equipos.Read());
+                Progress();
             }
             
         }
@@ -82,9 +87,7 @@ namespace Client_Web_Api
         {
             try
             {
-                prbBarra.Value = 0;
                 var v = await Equipos.Read();
-                prbBarra.Step = 1;
                 if (v == null)
                 {
                     MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,11 +95,9 @@ namespace Client_Web_Api
                 else
                 {
                     Tablas(await Equipos.Read());
+                    Progress();
                 }
-                for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i = (int) i + prbBarra.Step)
-                {
-                    prbBarra.PerformStep();
-                }
+
             }
             catch (Exception)
             {
@@ -139,6 +140,20 @@ namespace Client_Web_Api
             btnElim.Enabled = cond;
             btnReg.Enabled = !cond;
             cbSelec.Checked = cond;
+        }
+        private void Progress()
+        {
+            prbBarra.Visible = true;
+            prbBarra.Step = 1;
+            prbBarra.Value = 0;
+            lPb.Visible = true;
+            for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i++)
+            {
+                Thread.Sleep(50);
+                prbBarra.PerformStep();
+            }
+            lPb.Visible = false;
+            prbBarra.Visible = false;
         }
 
     }
