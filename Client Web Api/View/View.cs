@@ -1,6 +1,7 @@
 ﻿using Client_Web_Api.Controller;
 using Client_Web_Api.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Client_Web_Api
@@ -17,91 +18,71 @@ namespace Client_Web_Api
         private void View_Load(object sender, EventArgs e)
         {
             ProgressAsync();
-            tboxsNombreReg.Focus();
+            tboxsNombre.Focus();
         }
 
-        private void tableRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void btnCargar_ClickAsync(object sender, EventArgs e)
         {
-            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg,
-                tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo);
+            Tablas(await Equipos.Read());
         }
 
-        private void tableMod_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void TabaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check(tableMod, cbMod, pbEstadioMod, pbEscudoMod, tboxsIdMod,
-                tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod);
+            Check();
         }
 
-        private void tPestañas_SelectedIndexChanged(object sender, EventArgs e)
+        private async void btnBuscar_ClickAsync(object sender, EventArgs e)
         {
-            Listar();
-            if (tPestañas.SelectedIndex == 0)
+            BorrarText();
+            ControlEn(false);
+            try
             {
-                tboxsNombreReg.Focus();
-                BorrarText(tboxsIdReg, tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo);
-                ControlText(tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo, true);
-            } else if (tPestañas.SelectedIndex == 1)
-            {
-                tboxsNombreMod.Focus();
-                BorrarText(tboxsIdMod, tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod);
-                ControlText(tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod, false);
-            }else if(tPestañas.SelectedIndex == 2)
-            {
-                BorrarText(tboxsIdElim, tboxsNombreElim, tboxsEstadioElim, tboxuEstadioElim, tboxuEscudoElim);
-                ControlText(tboxsNombreElim, tboxsEstadioElim, tboxuEstadioElim, tboxuEscudoElim, false);
+                if (string.IsNullOrEmpty(tboxsBuscar.Text))
+                {
+                    MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (await Equipos.Read(tboxsBuscar.Text) == null)
+                {
+                    MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    List<EquiposModel> v = new List<EquiposModel>();
+                    v.Add(await Equipos.Read(tboxsBuscar.Text));
+                    Tablas(v);
+                }
             }
-            else
+            catch (Exception)
             {
-                BorrarText(tboxsIdBus, tboxsNombreBus, tboxsEstadioBus, tboxuEstadioBus, tboxuEscudoBus);
-                ControlText(tboxsNombreBus, tboxsEstadioBus, tboxuEstadioBus, tboxuEscudoBus, false);
+                MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
         }
 
-
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-            Listar();
-        }
-
-        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio,
-            PictureBox Escudo, TextBox Id, TextBox sNombre, TextBox sEstadio, TextBox uEstadio,
-            TextBox uEscudo)
+        private void Check()
         {
             for (int i = 0; i < Equipos.Equipos.Count; i++)
             {
-                if (Tabla.CurrentRow.Cells[0].Value.Equals(Equipos.Equipos[i].Id))
+                if (TabaDatos.CurrentRow.Cells[0].Value.Equals(Equipos.Equipos[i].Id))
                 {
-                    PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(),
-                        Equipos.Equipos[i].uEscudo.ToString());
-                    Check.Checked = true;
-                    Id.Text = Equipos.Equipos[i].Id;
-                    sNombre.Text = Equipos.Equipos[i].sNombre;
-                    sEstadio.Text = Equipos.Equipos[i].sEstadio;
-                    uEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
-                    uEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
+                    pbEstadio.ImageLocation = Equipos.Equipos[i].uEstadio.ToString();
+                    pbEscudo.ImageLocation = Equipos.Equipos[i].uEscudo.ToString();
+                    tboxsId.Text = Equipos.Equipos[i].Id;
+                    tboxsNombre.Text = Equipos.Equipos[i].sNombre;
+                    tboxsEstadio.Text = Equipos.Equipos[i].sEstadio;
+                    tboxuEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
+                    tboxuEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
+                    ControlEn(true);
                     break;
                 }
             }
-        }
-
-        private void ControlText(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo, bool Cond)
-        {
-            sNombre.Enabled = Cond;
-            sEstadio.Enabled = Cond;
-            uEstadio.Enabled = Cond;
-            uEscudo.Enabled = Cond;
-        }
-
-        private void PictBox(PictureBox Estadio, PictureBox Escudo, string Url_Estadio, string Url_Escudo)
-        {
-            Estadio.ImageLocation = Url_Estadio;
-            Escudo.ImageLocation = Url_Escudo;
         }
 
         private async void ProgressAsync()
         {
             try
             {
+                prbBarra.Value = 0;
                 var v = await Equipos.Read();
                 prbBarra.Step = 1;
                 if (v == null)
@@ -110,7 +91,7 @@ namespace Client_Web_Api
                 }
                 else
                 {
-                    Listar();
+                    Tablas(await Equipos.Read());
                 }
                 for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i = (int) i + prbBarra.Step)
                 {
@@ -123,17 +104,17 @@ namespace Client_Web_Api
             }
         }
 
-        private async void Tablas(DataGridView Table)
+        private void Tablas(List<EquiposModel> v1)
         {
             try
             {
-                while (Table.Rows.Count != 0)
+                while (TabaDatos.Rows.Count != 0)
                 {
-                    Table.Rows.RemoveAt(0);
+                    TabaDatos.Rows.RemoveAt(0);
                 }
-                foreach (EquiposModel Ob in await Equipos.Read())
+                foreach (EquiposModel Ob in v1)
                 {
-                    Table.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sEstadio });
+                    TabaDatos.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sEstadio });
                 }
             }
             catch (Exception)
@@ -142,21 +123,23 @@ namespace Client_Web_Api
             }
         }
 
-        private void Listar()
+        private void BorrarText()
         {
-            Tablas(tableRegistro);
-            Tablas(tableMod);
-            Tablas(tableElim);
-            Tablas(tableBus);
+            tboxsId.Text = null;
+            tboxsNombre.Text = null;
+            tboxsEstadio.Text = null;
+            tboxuEstadio.Text = null;
+            tboxuEscudo.Text = null;
+            tboxsBuscar.Text = null;
         }
 
-        private void BorrarText(TextBox Id,TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
+        private void ControlEn(bool cond)
         {
-            Id.Text = null;
-            sNombre.Text = null;
-            sEstadio.Text = null;
-            uEstadio.Text = null;
-            uEscudo.Text = null;
+            btnMod.Enabled = cond;
+            btnElim.Enabled = cond;
+            btnReg.Enabled = !cond;
+            cbSelec.Checked = cond;
         }
+
     }
 }

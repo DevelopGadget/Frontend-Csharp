@@ -28,9 +28,10 @@ namespace Client_Web_Api.Controller
             else return null;
         }
 
-        public void Read(string Id)
+        public async Task<EquiposModel> Read(string Id)
         {
-
+            if (await Get(Id) != null) return await Get(Id);
+            else return null;
         }
 
         public void Update(string Id)
