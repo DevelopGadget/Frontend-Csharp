@@ -39,20 +39,20 @@
             System.Windows.Forms.TabPage tbRegistrar;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             System.Windows.Forms.TabPage tbModificar;
-            System.Windows.Forms.TabPage tbEliminar;
-            System.Windows.Forms.TabPage tbBuscar;
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
+            System.Windows.Forms.TabPage tbEliminar;
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
             System.Windows.Forms.Label label16;
             System.Windows.Forms.Label label17;
             System.Windows.Forms.Label label18;
+            System.Windows.Forms.TabPage tbBuscar;
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableRegistro = new System.Windows.Forms.DataGridView();
@@ -64,6 +64,8 @@
             this.tboxuEscudo = new System.Windows.Forms.TextBox();
             this.tboxsEstadioReg = new System.Windows.Forms.TextBox();
             this.tboxsNombreReg = new System.Windows.Forms.TextBox();
+            this.cbMod = new System.Windows.Forms.CheckBox();
+            this.btnBuscarMod = new System.Windows.Forms.Button();
             this.btnMod = new System.Windows.Forms.Button();
             this.tableMod = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +76,7 @@
             this.tboxuEscudoMod = new System.Windows.Forms.TextBox();
             this.tboxsEstadioMod = new System.Windows.Forms.TextBox();
             this.tboxsNombreMod = new System.Windows.Forms.TextBox();
-            this.btnBuscarMod = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnBuscarElim = new System.Windows.Forms.Button();
             this.btnElim = new System.Windows.Forms.Button();
             this.tableElim = new System.Windows.Forms.DataGridView();
@@ -86,8 +88,6 @@
             this.tboxuEscudoElim = new System.Windows.Forms.TextBox();
             this.tboxsEstadioElim = new System.Windows.Forms.TextBox();
             this.tboxsNombreElim = new System.Windows.Forms.TextBox();
-            this.cbMod = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -97,30 +97,30 @@
             tPestañas = new System.Windows.Forms.TabControl();
             tbRegistrar = new System.Windows.Forms.TabPage();
             tbModificar = new System.Windows.Forms.TabPage();
-            tbEliminar = new System.Windows.Forms.TabPage();
-            tbBuscar = new System.Windows.Forms.TabPage();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
+            tbEliminar = new System.Windows.Forms.TabPage();
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
+            tbBuscar = new System.Windows.Forms.TabPage();
             tPestañas.SuspendLayout();
             tbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoReg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).BeginInit();
             tbModificar.SuspendLayout();
-            tbEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).BeginInit();
+            tbEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableElim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).BeginInit();
@@ -283,17 +283,19 @@
             // 
             // pbEscudoReg
             // 
-            this.pbEscudoReg.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbEscudoReg.InitialImage")));
+            this.pbEscudoReg.Image = global::Client_Web_Api.Properties.Resources.sele;
+            this.pbEscudoReg.InitialImage = null;
             this.pbEscudoReg.Location = new System.Drawing.Point(576, 248);
             this.pbEscudoReg.Name = "pbEscudoReg";
             this.pbEscudoReg.Size = new System.Drawing.Size(191, 149);
-            this.pbEscudoReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbEscudoReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEscudoReg.TabIndex = 9;
             this.pbEscudoReg.TabStop = false;
             // 
             // pbEstadioReg
             // 
-            this.pbEstadioReg.InitialImage = global::Client_Web_Api.Properties.Resources.select;
+            this.pbEstadioReg.Image = global::Client_Web_Api.Properties.Resources.sele;
+            this.pbEstadioReg.InitialImage = null;
             this.pbEstadioReg.Location = new System.Drawing.Point(358, 248);
             this.pbEstadioReg.Name = "pbEstadioReg";
             this.pbEstadioReg.Size = new System.Drawing.Size(191, 149);
@@ -358,47 +360,31 @@
             tbModificar.Text = "Modificar";
             tbModificar.UseVisualStyleBackColor = true;
             // 
-            // tbEliminar
+            // cbMod
             // 
-            tbEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            tbEliminar.Controls.Add(this.checkBox1);
-            tbEliminar.Controls.Add(this.btnBuscarElim);
-            tbEliminar.Controls.Add(this.btnElim);
-            tbEliminar.Controls.Add(this.tableElim);
-            tbEliminar.Controls.Add(label13);
-            tbEliminar.Controls.Add(label14);
-            tbEliminar.Controls.Add(this.pbEscudoElim);
-            tbEliminar.Controls.Add(this.pbEstadioElim);
-            tbEliminar.Controls.Add(this.tboxuEstadioElim);
-            tbEliminar.Controls.Add(label15);
-            tbEliminar.Controls.Add(this.tboxuEscudoElim);
-            tbEliminar.Controls.Add(label16);
-            tbEliminar.Controls.Add(this.tboxsEstadioElim);
-            tbEliminar.Controls.Add(label17);
-            tbEliminar.Controls.Add(this.tboxsNombreElim);
-            tbEliminar.Controls.Add(label18);
-            tbEliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            tbEliminar.ImageIndex = 1;
-            tbEliminar.Location = new System.Drawing.Point(4, 54);
-            tbEliminar.Name = "tbEliminar";
-            tbEliminar.Padding = new System.Windows.Forms.Padding(3);
-            tbEliminar.Size = new System.Drawing.Size(777, 421);
-            tbEliminar.TabIndex = 2;
-            tbEliminar.Text = "Eliminar";
-            tbEliminar.UseVisualStyleBackColor = true;
+            this.cbMod.AutoSize = true;
+            this.cbMod.Enabled = false;
+            this.cbMod.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbMod.Location = new System.Drawing.Point(149, 200);
+            this.cbMod.Name = "cbMod";
+            this.cbMod.Size = new System.Drawing.Size(123, 22);
+            this.cbMod.TabIndex = 29;
+            this.cbMod.Text = "Seleccionado";
+            this.cbMod.UseVisualStyleBackColor = true;
             // 
-            // tbBuscar
+            // btnBuscarMod
             // 
-            tbBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            tbBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            tbBuscar.ImageIndex = 2;
-            tbBuscar.Location = new System.Drawing.Point(4, 54);
-            tbBuscar.Name = "tbBuscar";
-            tbBuscar.Padding = new System.Windows.Forms.Padding(3);
-            tbBuscar.Size = new System.Drawing.Size(777, 421);
-            tbBuscar.TabIndex = 3;
-            tbBuscar.Text = "Buscar";
-            tbBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscarMod.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnBuscarMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarMod.ImageIndex = 2;
+            this.btnBuscarMod.ImageList = this.imageList1;
+            this.btnBuscarMod.Location = new System.Drawing.Point(26, 188);
+            this.btnBuscarMod.Name = "btnBuscarMod";
+            this.btnBuscarMod.Size = new System.Drawing.Size(117, 45);
+            this.btnBuscarMod.TabIndex = 28;
+            this.btnBuscarMod.Text = "Buscar";
+            this.btnBuscarMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarMod.UseVisualStyleBackColor = true;
             // 
             // btnMod
             // 
@@ -466,17 +452,21 @@
             // 
             // pbEscudoMod
             // 
+            this.pbEscudoMod.Image = ((System.Drawing.Image)(resources.GetObject("pbEscudoMod.Image")));
             this.pbEscudoMod.Location = new System.Drawing.Point(576, 248);
             this.pbEscudoMod.Name = "pbEscudoMod";
             this.pbEscudoMod.Size = new System.Drawing.Size(191, 149);
+            this.pbEscudoMod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEscudoMod.TabIndex = 23;
             this.pbEscudoMod.TabStop = false;
             // 
             // pbEstadioMod
             // 
+            this.pbEstadioMod.Image = ((System.Drawing.Image)(resources.GetObject("pbEstadioMod.Image")));
             this.pbEstadioMod.Location = new System.Drawing.Point(358, 248);
             this.pbEstadioMod.Name = "pbEstadioMod";
             this.pbEstadioMod.Size = new System.Drawing.Size(191, 149);
+            this.pbEstadioMod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEstadioMod.TabIndex = 22;
             this.pbEstadioMod.TabStop = false;
             // 
@@ -548,19 +538,46 @@
             label12.TabIndex = 14;
             label12.Text = "Nombre:";
             // 
-            // btnBuscarMod
+            // tbEliminar
             // 
-            this.btnBuscarMod.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnBuscarMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarMod.ImageIndex = 2;
-            this.btnBuscarMod.ImageList = this.imageList1;
-            this.btnBuscarMod.Location = new System.Drawing.Point(26, 188);
-            this.btnBuscarMod.Name = "btnBuscarMod";
-            this.btnBuscarMod.Size = new System.Drawing.Size(117, 45);
-            this.btnBuscarMod.TabIndex = 28;
-            this.btnBuscarMod.Text = "Buscar";
-            this.btnBuscarMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarMod.UseVisualStyleBackColor = true;
+            tbEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbEliminar.Controls.Add(this.checkBox1);
+            tbEliminar.Controls.Add(this.btnBuscarElim);
+            tbEliminar.Controls.Add(this.btnElim);
+            tbEliminar.Controls.Add(this.tableElim);
+            tbEliminar.Controls.Add(label13);
+            tbEliminar.Controls.Add(label14);
+            tbEliminar.Controls.Add(this.pbEscudoElim);
+            tbEliminar.Controls.Add(this.pbEstadioElim);
+            tbEliminar.Controls.Add(this.tboxuEstadioElim);
+            tbEliminar.Controls.Add(label15);
+            tbEliminar.Controls.Add(this.tboxuEscudoElim);
+            tbEliminar.Controls.Add(label16);
+            tbEliminar.Controls.Add(this.tboxsEstadioElim);
+            tbEliminar.Controls.Add(label17);
+            tbEliminar.Controls.Add(this.tboxsNombreElim);
+            tbEliminar.Controls.Add(label18);
+            tbEliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            tbEliminar.ImageIndex = 1;
+            tbEliminar.Location = new System.Drawing.Point(4, 54);
+            tbEliminar.Name = "tbEliminar";
+            tbEliminar.Padding = new System.Windows.Forms.Padding(3);
+            tbEliminar.Size = new System.Drawing.Size(777, 421);
+            tbEliminar.TabIndex = 2;
+            tbEliminar.Text = "Eliminar";
+            tbEliminar.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Font = new System.Drawing.Font("Arial", 12F);
+            this.checkBox1.Location = new System.Drawing.Point(149, 200);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(123, 22);
+            this.checkBox1.TabIndex = 44;
+            this.checkBox1.Text = "Seleccionado";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // btnBuscarElim
             // 
@@ -642,17 +659,21 @@
             // 
             // pbEscudoElim
             // 
+            this.pbEscudoElim.Image = ((System.Drawing.Image)(resources.GetObject("pbEscudoElim.Image")));
             this.pbEscudoElim.Location = new System.Drawing.Point(576, 248);
             this.pbEscudoElim.Name = "pbEscudoElim";
             this.pbEscudoElim.Size = new System.Drawing.Size(191, 149);
+            this.pbEscudoElim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEscudoElim.TabIndex = 38;
             this.pbEscudoElim.TabStop = false;
             // 
             // pbEstadioElim
             // 
+            this.pbEstadioElim.Image = ((System.Drawing.Image)(resources.GetObject("pbEstadioElim.Image")));
             this.pbEstadioElim.Location = new System.Drawing.Point(358, 248);
             this.pbEstadioElim.Name = "pbEstadioElim";
             this.pbEstadioElim.Size = new System.Drawing.Size(191, 149);
+            this.pbEstadioElim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEstadioElim.TabIndex = 37;
             this.pbEstadioElim.TabStop = false;
             // 
@@ -728,27 +749,18 @@
             label18.TabIndex = 29;
             label18.Text = "Nombre:";
             // 
-            // cbMod
+            // tbBuscar
             // 
-            this.cbMod.AutoSize = true;
-            this.cbMod.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbMod.Location = new System.Drawing.Point(149, 200);
-            this.cbMod.Name = "cbMod";
-            this.cbMod.Size = new System.Drawing.Size(123, 22);
-            this.cbMod.TabIndex = 29;
-            this.cbMod.Text = "Seleccionado";
-            this.cbMod.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(149, 200);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(123, 22);
-            this.checkBox1.TabIndex = 44;
-            this.checkBox1.Text = "Seleccionado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            tbBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            tbBuscar.ImageIndex = 2;
+            tbBuscar.Location = new System.Drawing.Point(4, 54);
+            tbBuscar.Name = "tbBuscar";
+            tbBuscar.Padding = new System.Windows.Forms.Padding(3);
+            tbBuscar.Size = new System.Drawing.Size(777, 421);
+            tbBuscar.TabIndex = 3;
+            tbBuscar.Text = "Buscar";
+            tbBuscar.UseVisualStyleBackColor = true;
             // 
             // View
             // 
@@ -772,11 +784,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).EndInit();
             tbModificar.ResumeLayout(false);
             tbModificar.PerformLayout();
-            tbEliminar.ResumeLayout(false);
-            tbEliminar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).EndInit();
+            tbEliminar.ResumeLayout(false);
+            tbEliminar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableElim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).EndInit();
