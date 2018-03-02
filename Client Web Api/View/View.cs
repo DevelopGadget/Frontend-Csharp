@@ -25,15 +25,24 @@ namespace Client_Web_Api
 
         private void tableRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg);
+            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg, 
+                tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo);
         }
 
         private void tableMod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check(tableMod, cbMod, pbEstadioMod, pbEscudoMod, tboxsIdMod);
+            Check(tableMod, cbMod, pbEstadioMod, pbEscudoMod, tboxsIdMod,
+                tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod);
         }
 
-        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, PictureBox Escudo, TextBox Id)
+        private void tPestañas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, 
+            PictureBox Escudo, TextBox Id, TextBox sNombre, TextBox sEstadio, TextBox uEstadio,
+            TextBox uEscudo)
         {
             for (int i = 0; i < Equipos.Equipos.Count; i++)
             {
@@ -42,10 +51,22 @@ namespace Client_Web_Api
                     PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(), 
                         Equipos.Equipos[i].uEscudo.ToString());
                     Check.Checked = true;
-                    Id.Text = Equipos.Equipos[i].Id;                 
+                    Id.Text = Equipos.Equipos[i].Id;
+                    sNombre.Text = Equipos.Equipos[i].sNombre;
+                    sEstadio.Text = Equipos.Equipos[i].sEstadio;
+                    uEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
+                    uEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
                     break;
                 }
             }
+        }
+
+        private void ControlText(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo, bool Cond)
+        {
+            sNombre.Enabled = Cond;
+            sEstadio.Enabled = Cond;
+            uEstadio.Enabled = Cond;
+            uEscudo.Enabled = Cond;
         }
 
         private void PictBox(PictureBox Estadio, PictureBox Escudo, string Url_Estadio, string Url_Escudo)
@@ -88,17 +109,12 @@ namespace Client_Web_Api
             Tablas(tableBus);
         }
 
-        private void BorrarTextBox(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
+        private void ContrlTexto(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
         {
             sNombre.Text = null;
             sEstadio.Text = null;
             uEstadio.Text = null;
             uEscudo.Text = null;
-        }
-
-        private void tPestañas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
     }
