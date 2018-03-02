@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Client_Web_Api.Controller;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client_Web_Api
@@ -9,10 +11,7 @@ namespace Client_Web_Api
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+    
+        private EquiposController Equipos = new EquiposController();
     }
 }
