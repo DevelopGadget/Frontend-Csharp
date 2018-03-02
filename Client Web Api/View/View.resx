@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label5.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label6.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tPestañas.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tbRegistrar.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tbModificar.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -125,7 +152,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAc
-        DwAAAk1TRnQBSQFMAgEBBAEAAQgBAAEIAQABHgEAAR4BAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DwAAAk1TRnQBSQFMAgEBBAEAARABAAEQAQABHgEAAR4BAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABeAMAATwDAAEBAQABCAUAASABHBgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
         AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
         AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
@@ -156,7 +183,7 @@
         AfAB+wH/AQABpAKgAQADgAMAAf8CAAH/AwAC/wEAAf8DAAH/AQAB/wEAAv8CAAP//wD/AP8A/wD/AP8A
         /wD/AP8A/wD/AP8A/wD/ACkACwgTAAsIEwALCBMACwgRAA8IDwAPCA8ADwgPAA8IDQAB8xEIAf8LAAHz
         EQgB/wsAAfMRCAH/CwAB8xEIAf8KABUICQAVCAkAFQgJABUICAAXCAcAFwgHABcIBwAICAGYBW0BmAgI
-        BgAB8gMIAXMBmBIIAf8FAAHyAwgBcwGYEggB/wUAAfIDCAFzAZgSCAH/BQAB8gYIAfgBCAGYBcMBmAEI
+        BgAB8gMIAXMBmBIIAf8FAAHyAwgBcwGYEggB/wUAAfIDCAFzAZgSCAH/BQAB8gYIAewBCAGYBcMBmAEI
         AXIGCAH/BQADCAFzARoBmQGYEggFAAMIAXMBGgGZAZgSCAUAAwgBcwEaAZkBmBIIBQAGCAEcAcMBcwHr
         BcMB6wEcAcMBHAYIBAAECAHDAZgBbQHDAZgSCAMABAgBwwGYAW0BwwGYEggDAAQIAcMBmAFtAcMBmBII
         AwAGCAEcDcMBcwYIAwAFCAEaA8MBmBEIAwAFCAEaA8MBmBEIAwAFCAEaA8MBmBEIAwAFCAEcD8MBHAUI
@@ -166,12 +193,12 @@
         CggBmAPDAwgDmAkIAQAECAGYBcMJCAXDAZgECAHwCwgBmALDARoBcgLDARoCwwEcBwgB8AsIAZgCwwEa
         AXICwwEaAsMBHAcIAfALCAGYAsMBGgFyAsMBGgLDARwHCAHwBAgBmAXDCQgFwwGYEggDwwUIAZgBwxQI
         A8MFCAGYAcMUCAPDAe0DrgHtAZgBwwsIAZgEwwGZCQgBGgTDAZgSCAFyARoHCAGYAcMTCAFyARoHCAGY
-        AcMTCAFyARoB+AGuAwgBkQGuAZgBwwoIAZgFwwkIBcMBmAQIAQAMCAGYAcMCCAFtAe0BCAHsAZECCAEa
-        AZgECAEADAgBmAHDBQgB+AGRAggBGgGYBAgBAAwIAZgBwwkIARoBmAQIAQAECAGYBcMICAGYBcMBmAQI
-        AQAMCAHtARoCCAKuAfgCrgIIAZgBGgQIAQAMCAHtARoECAH4Aq4CCAGYARoECAEADAgB7QEaCQgBmAEa
-        BAgBAAYIAZkDwwGZBwgBGgPDAZgGCAEADAgB+AQIA64DCAGYAcMECAEADAgB+AQIAfgCrgMIAZgBwwQI
-        AQAMCAH4CggBmAHDBAgBAAYIARwEwwGZAZgDCAGYAZkEwwFzBggBAAwIAe0DCAHsA64B7QIIAZgBwwQI
-        AQAMCAHtAwgB+AKuBAgBmAHDBAgBAAwIAe0KCAGYAcMECAEABQgBmAjDAZkIwwGYBQgCAAsIAZgBwwII
+        AcMTCAFyARoB7AGuAwgBkQGuAZgBwwoIAZgFwwkIBcMBmAQIAQAMCAGYAcMCCAFtAe0BCAHsAZECCAEa
+        AZgECAEADAgBmAHDBQgB7AGRAggBGgGYBAgBAAwIAZgBwwkIARoBmAQIAQAECAGYBcMICAGYBcMBmAQI
+        AQAMCAHtARoCCAKuAewCrgIIAZgBGgQIAQAMCAHtARoECAHsAq4CCAGYARoECAEADAgB7QEaCQgBmAEa
+        BAgBAAYIAZkDwwGZBwgBGgPDAZgGCAEADAgB7AQIA64DCAGYAcMECAEADAgB7AQIAewCrgMIAZgBwwQI
+        AQAMCAHsCggBmAHDBAgBAAYIARwEwwGZAZgDCAGYAZkEwwFzBggBAAwIAe0DCAHsA64B7QIIAZgBwwQI
+        AQAMCAHtAwgB7AKuBAgBmAHDBAgBAAwIAe0KCAGYAcMECAEABQgBmAjDAZkIwwGYBQgCAAsIAZgBwwII
         Aq4BCAGRAa4CCAFyBAgDAAsIAZgBwwIIAq4FCAFyBAgDAAsIAZgBwwkIAXIECAMABQgBGg/DBggDAAwI
         AcMBmAcIAZgBwwQIAwAMCAHDAZgHCAGYAcMECAMADAgBwwGYBwgBmAHDBAgDAAYIARoNwwcIBAALCAGY
         AcMBmAUIAZgBGgQIBQALCAGYAcMBmAUIAZgBGgQIBQALCAGYAcMBmAUIAZgBGgQIBQAGCAEaAcMBCAGZ
@@ -192,29 +219,47 @@
         Af8B8AEBAf8BAAH/AfwBfwL/AfED/wHHA/8BHwH/AQAL
 </value>
   </data>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label7.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label8.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label9.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label10.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label11.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label12.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tbEliminar.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tbBuscar.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <metadata name="sNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="sEstadio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="label6.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
+  <metadata name="sNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <metadata name="label5.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
+  <metadata name="sEstadio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>

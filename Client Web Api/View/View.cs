@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Client_Web_Api
 {
-    public partial class Form1 : Form
+    public partial class View : Form
     {
-        public Form1()
+        public View()
         {
             InitializeComponent();
         }
