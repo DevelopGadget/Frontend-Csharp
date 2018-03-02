@@ -25,10 +25,15 @@ namespace Client_Web_Api
 
         private void tableRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg);
+            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg);
         }
 
-        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, PictureBox Escudo)
+        private void tableMod_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Check(tableMod, cbMod, pbEstadioMod, pbEscudoMod, tboxsIdMod);
+        }
+
+        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, PictureBox Escudo, TextBox Id)
         {
             for (int i = 0; i < Equipos.Equipos.Count; i++)
             {
@@ -36,6 +41,8 @@ namespace Client_Web_Api
                 {
                     PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(), 
                         Equipos.Equipos[i].uEscudo.ToString());
+                    Check.Checked = true;
+                    Id.Text = Equipos.Equipos[i].Id;                 
                     break;
                 }
             }
@@ -89,6 +96,10 @@ namespace Client_Web_Api
             uEscudo.Text = null;
         }
 
+        private void tPestañas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

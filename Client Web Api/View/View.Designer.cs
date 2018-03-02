@@ -63,6 +63,12 @@
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label24;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tboxsIdReg = new System.Windows.Forms.TextBox();
             this.cbReg = new System.Windows.Forms.CheckBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -107,13 +113,7 @@
             this.tboxsEstadioBus = new System.Windows.Forms.TextBox();
             this.tboxsNombreBus = new System.Windows.Forms.TextBox();
             this.prbBarra = new System.Windows.Forms.ProgressBar();
-            this.sId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableMod = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableElim = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +122,12 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -241,6 +247,7 @@
             tPestañas.Controls.Add(tbModificar);
             tPestañas.Controls.Add(tbEliminar);
             tPestañas.Controls.Add(tbBuscar);
+            tPestañas.Font = new System.Drawing.Font("Arial", 10F);
             tPestañas.ImageList = this.imageList1;
             tPestañas.ItemSize = new System.Drawing.Size(60, 50);
             tPestañas.Location = new System.Drawing.Point(0, 0);
@@ -248,6 +255,7 @@
             tPestañas.SelectedIndex = 0;
             tPestañas.Size = new System.Drawing.Size(785, 469);
             tPestañas.TabIndex = 0;
+            tPestañas.SelectedIndexChanged += new System.EventHandler(this.tPestañas_SelectedIndexChanged);
             // 
             // tbRegistrar
             // 
@@ -292,9 +300,10 @@
             // tboxsIdReg
             // 
             this.tboxsIdReg.Enabled = false;
+            this.tboxsIdReg.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsIdReg.Location = new System.Drawing.Point(19, 142);
             this.tboxsIdReg.Name = "tboxsIdReg";
-            this.tboxsIdReg.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdReg.Size = new System.Drawing.Size(145, 23);
             this.tboxsIdReg.TabIndex = 46;
             // 
             // cbReg
@@ -372,30 +381,34 @@
             // 
             // tboxuEstadioReg
             // 
+            this.tboxuEstadioReg.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEstadioReg.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioReg.Name = "tboxuEstadioReg";
-            this.tboxuEstadioReg.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEstadioReg.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadioReg.TabIndex = 2;
             // 
             // tboxuEscudo
             // 
+            this.tboxuEscudo.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEscudo.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudo.Name = "tboxuEscudo";
-            this.tboxuEscudo.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEscudo.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudo.TabIndex = 3;
             // 
             // tboxsEstadioReg
             // 
+            this.tboxsEstadioReg.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsEstadioReg.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioReg.Name = "tboxsEstadioReg";
-            this.tboxsEstadioReg.Size = new System.Drawing.Size(145, 26);
+            this.tboxsEstadioReg.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadioReg.TabIndex = 1;
             // 
             // tboxsNombreReg
             // 
+            this.tboxsNombreReg.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsNombreReg.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreReg.Name = "tboxsNombreReg";
-            this.tboxsNombreReg.Size = new System.Drawing.Size(145, 26);
+            this.tboxsNombreReg.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombreReg.TabIndex = 0;
             // 
             // tbModificar
@@ -443,16 +456,18 @@
             // tboxsIdMod
             // 
             this.tboxsIdMod.Enabled = false;
+            this.tboxsIdMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsIdMod.Location = new System.Drawing.Point(16, 108);
             this.tboxsIdMod.Name = "tboxsIdMod";
-            this.tboxsIdMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdMod.Size = new System.Drawing.Size(145, 23);
             this.tboxsIdMod.TabIndex = 48;
             // 
             // tboxsBuscarMod
             // 
+            this.tboxsBuscarMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsBuscarMod.Location = new System.Drawing.Point(16, 156);
             this.tboxsBuscarMod.Name = "tboxsBuscarMod";
-            this.tboxsBuscarMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxsBuscarMod.Size = new System.Drawing.Size(145, 23);
             this.tboxsBuscarMod.TabIndex = 10;
             // 
             // cbMod
@@ -539,9 +554,10 @@
             // tboxuEstadioMod
             // 
             this.tboxuEstadioMod.Enabled = false;
+            this.tboxuEstadioMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEstadioMod.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioMod.Name = "tboxuEstadioMod";
-            this.tboxuEstadioMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEstadioMod.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadioMod.TabIndex = 7;
             // 
             // label9
@@ -557,9 +573,10 @@
             // tboxuEscudoMod
             // 
             this.tboxuEscudoMod.Enabled = false;
+            this.tboxuEscudoMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEscudoMod.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudoMod.Name = "tboxuEscudoMod";
-            this.tboxuEscudoMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEscudoMod.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudoMod.TabIndex = 8;
             // 
             // label10
@@ -575,9 +592,10 @@
             // tboxsEstadioMod
             // 
             this.tboxsEstadioMod.Enabled = false;
+            this.tboxsEstadioMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsEstadioMod.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioMod.Name = "tboxsEstadioMod";
-            this.tboxsEstadioMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxsEstadioMod.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadioMod.TabIndex = 6;
             // 
             // label11
@@ -593,9 +611,10 @@
             // tboxsNombreMod
             // 
             this.tboxsNombreMod.Enabled = false;
+            this.tboxsNombreMod.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsNombreMod.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreMod.Name = "tboxsNombreMod";
-            this.tboxsNombreMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxsNombreMod.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombreMod.TabIndex = 5;
             // 
             // label12
@@ -630,7 +649,7 @@
             tbEliminar.Controls.Add(label17);
             tbEliminar.Controls.Add(this.tboxsNombreElim);
             tbEliminar.Controls.Add(label18);
-            tbEliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            tbEliminar.Font = new System.Drawing.Font("Arial", 10F);
             tbEliminar.ImageIndex = 1;
             tbEliminar.Location = new System.Drawing.Point(4, 54);
             tbEliminar.Name = "tbEliminar";
@@ -653,16 +672,18 @@
             // tboxsIdElim
             // 
             this.tboxsIdElim.Enabled = false;
+            this.tboxsIdElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsIdElim.Location = new System.Drawing.Point(16, 108);
             this.tboxsIdElim.Name = "tboxsIdElim";
-            this.tboxsIdElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdElim.Size = new System.Drawing.Size(145, 23);
             this.tboxsIdElim.TabIndex = 48;
             // 
             // tboxsBuscarElim
             // 
+            this.tboxsBuscarElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsBuscarElim.Location = new System.Drawing.Point(16, 156);
             this.tboxsBuscarElim.Name = "tboxsBuscarElim";
-            this.tboxsBuscarElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsBuscarElim.Size = new System.Drawing.Size(145, 23);
             this.tboxsBuscarElim.TabIndex = 17;
             // 
             // cbElim
@@ -749,9 +770,10 @@
             // tboxuEstadioElim
             // 
             this.tboxuEstadioElim.Enabled = false;
+            this.tboxuEstadioElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEstadioElim.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioElim.Name = "tboxuEstadioElim";
-            this.tboxuEstadioElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEstadioElim.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadioElim.TabIndex = 14;
             // 
             // label15
@@ -767,9 +789,10 @@
             // tboxuEscudoElim
             // 
             this.tboxuEscudoElim.Enabled = false;
+            this.tboxuEscudoElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEscudoElim.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudoElim.Name = "tboxuEscudoElim";
-            this.tboxuEscudoElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEscudoElim.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudoElim.TabIndex = 15;
             // 
             // label16
@@ -785,9 +808,10 @@
             // tboxsEstadioElim
             // 
             this.tboxsEstadioElim.Enabled = false;
+            this.tboxsEstadioElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsEstadioElim.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioElim.Name = "tboxsEstadioElim";
-            this.tboxsEstadioElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsEstadioElim.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadioElim.TabIndex = 13;
             // 
             // label17
@@ -803,9 +827,10 @@
             // tboxsNombreElim
             // 
             this.tboxsNombreElim.Enabled = false;
+            this.tboxsNombreElim.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsNombreElim.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreElim.Name = "tboxsNombreElim";
-            this.tboxsNombreElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsNombreElim.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombreElim.TabIndex = 12;
             // 
             // label18
@@ -839,7 +864,7 @@
             tbBuscar.Controls.Add(label23);
             tbBuscar.Controls.Add(this.tboxsNombreBus);
             tbBuscar.Controls.Add(label24);
-            tbBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            tbBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tbBuscar.ImageIndex = 2;
             tbBuscar.Location = new System.Drawing.Point(4, 54);
             tbBuscar.Name = "tbBuscar";
@@ -862,16 +887,18 @@
             // tboxsIdBus
             // 
             this.tboxsIdBus.Enabled = false;
+            this.tboxsIdBus.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsIdBus.Location = new System.Drawing.Point(16, 108);
             this.tboxsIdBus.Name = "tboxsIdBus";
-            this.tboxsIdBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdBus.Size = new System.Drawing.Size(145, 23);
             this.tboxsIdBus.TabIndex = 62;
             // 
             // tboxsBuscar
             // 
+            this.tboxsBuscar.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsBuscar.Location = new System.Drawing.Point(16, 156);
             this.tboxsBuscar.Name = "tboxsBuscar";
-            this.tboxsBuscar.Size = new System.Drawing.Size(145, 26);
+            this.tboxsBuscar.Size = new System.Drawing.Size(145, 23);
             this.tboxsBuscar.TabIndex = 23;
             // 
             // cbBuscar
@@ -943,9 +970,10 @@
             // tboxuEstadioBus
             // 
             this.tboxuEstadioBus.Enabled = false;
+            this.tboxuEstadioBus.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEstadioBus.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioBus.Name = "tboxuEstadioBus";
-            this.tboxuEstadioBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEstadioBus.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadioBus.TabIndex = 21;
             // 
             // label21
@@ -961,9 +989,10 @@
             // tboxuEscudoBus
             // 
             this.tboxuEscudoBus.Enabled = false;
+            this.tboxuEscudoBus.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxuEscudoBus.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudoBus.Name = "tboxuEscudoBus";
-            this.tboxuEscudoBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEscudoBus.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudoBus.TabIndex = 22;
             // 
             // label22
@@ -979,9 +1008,10 @@
             // tboxsEstadioBus
             // 
             this.tboxsEstadioBus.Enabled = false;
+            this.tboxsEstadioBus.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsEstadioBus.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioBus.Name = "tboxsEstadioBus";
-            this.tboxsEstadioBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxsEstadioBus.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadioBus.TabIndex = 20;
             // 
             // label23
@@ -997,9 +1027,10 @@
             // tboxsNombreBus
             // 
             this.tboxsNombreBus.Enabled = false;
+            this.tboxsNombreBus.Font = new System.Drawing.Font("Arial", 10F);
             this.tboxsNombreBus.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreBus.Name = "tboxsNombreBus";
-            this.tboxsNombreBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxsNombreBus.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombreBus.TabIndex = 19;
             // 
             // label24
@@ -1019,27 +1050,6 @@
             this.prbBarra.Size = new System.Drawing.Size(777, 23);
             this.prbBarra.TabIndex = 1;
             // 
-            // sId
-            // 
-            this.sId.HeaderText = "Id";
-            this.sId.Name = "sId";
-            this.sId.ReadOnly = true;
-            this.sId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // sNombre
-            // 
-            this.sNombre.HeaderText = "Nombre";
-            this.sNombre.Name = "sNombre";
-            this.sNombre.ReadOnly = true;
-            this.sNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // sEstadio
-            // 
-            this.sEstadio.HeaderText = "Estadio";
-            this.sEstadio.Name = "sEstadio";
-            this.sEstadio.ReadOnly = true;
-            this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // tableMod
             // 
             this.tableMod.AllowUserToAddRows = false;
@@ -1054,27 +1064,7 @@
             this.tableMod.ReadOnly = true;
             this.tableMod.Size = new System.Drawing.Size(344, 150);
             this.tableMod.TabIndex = 50;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Estadio";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableMod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableMod_CellContentClick);
             // 
             // tableElim
             // 
@@ -1147,6 +1137,60 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // sId
+            // 
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 10F);
+            this.sId.DefaultCellStyle = dataGridViewCellStyle10;
+            this.sId.HeaderText = "Id";
+            this.sId.Name = "sId";
+            this.sId.ReadOnly = true;
+            this.sId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // sNombre
+            // 
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 10F);
+            this.sNombre.DefaultCellStyle = dataGridViewCellStyle11;
+            this.sNombre.HeaderText = "Nombre";
+            this.sNombre.Name = "sNombre";
+            this.sNombre.ReadOnly = true;
+            this.sNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // sEstadio
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 10F);
+            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle12;
+            this.sEstadio.HeaderText = "Estadio";
+            this.sEstadio.Name = "sEstadio";
+            this.sEstadio.ReadOnly = true;
+            this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Estadio";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // View
             // 
@@ -1233,13 +1277,7 @@
         private System.Windows.Forms.TextBox tboxsIdElim;
         private System.Windows.Forms.TextBox tboxsIdBus;
         private System.Windows.Forms.ProgressBar prbBarra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sEstadio;
         private System.Windows.Forms.DataGridView tableMod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridView tableElim;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -1248,6 +1286,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sEstadio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
 
