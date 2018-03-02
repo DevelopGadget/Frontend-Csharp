@@ -59,6 +59,10 @@
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label24;
+            System.Windows.Forms.Label label25;
+            System.Windows.Forms.Label label26;
+            System.Windows.Forms.Label label27;
+            System.Windows.Forms.Label label28;
             this.cbReg = new System.Windows.Forms.CheckBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -109,6 +113,10 @@
             this.tboxuEscudoBus = new System.Windows.Forms.TextBox();
             this.tboxsEstadioBus = new System.Windows.Forms.TextBox();
             this.tboxsNombreBus = new System.Windows.Forms.TextBox();
+            this.tboxsIdReg = new System.Windows.Forms.TextBox();
+            this.tboxsIdMod = new System.Windows.Forms.TextBox();
+            this.tboxsIdElim = new System.Windows.Forms.TextBox();
+            this.tboxsIdBus = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -138,6 +146,10 @@
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
             label24 = new System.Windows.Forms.Label();
+            label25 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
+            label28 = new System.Windows.Forms.Label();
             tPestañas.SuspendLayout();
             tbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableRegistro)).BeginInit();
@@ -235,6 +247,8 @@
             // tbRegistrar
             // 
             tbRegistrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbRegistrar.Controls.Add(label25);
+            tbRegistrar.Controls.Add(this.tboxsIdReg);
             tbRegistrar.Controls.Add(this.cbReg);
             tbRegistrar.Controls.Add(this.btnRegistrar);
             tbRegistrar.Controls.Add(this.tableRegistro);
@@ -378,6 +392,8 @@
             // tbModificar
             // 
             tbModificar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbModificar.Controls.Add(label26);
+            tbModificar.Controls.Add(this.tboxsIdMod);
             tbModificar.Controls.Add(this.tboxsBuscarMod);
             tbModificar.Controls.Add(this.cbMod);
             tbModificar.Controls.Add(this.btnBuscarMod);
@@ -598,6 +614,8 @@
             // tbEliminar
             // 
             tbEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbEliminar.Controls.Add(label27);
+            tbEliminar.Controls.Add(this.tboxsIdElim);
             tbEliminar.Controls.Add(this.tboxsBuscarElim);
             tbEliminar.Controls.Add(this.cbElim);
             tbEliminar.Controls.Add(this.btnBuscarElim);
@@ -818,6 +836,8 @@
             // tbBuscar
             // 
             tbBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbBuscar.Controls.Add(label28);
+            tbBuscar.Controls.Add(this.tboxsIdBus);
             tbBuscar.Controls.Add(this.tboxsBuscar);
             tbBuscar.Controls.Add(this.cbBuscar);
             tbBuscar.Controls.Add(this.btnBuscar);
@@ -1019,6 +1039,78 @@
             label24.TabIndex = 45;
             label24.Text = "Nombre:";
             // 
+            // tboxsIdReg
+            // 
+            this.tboxsIdReg.Enabled = false;
+            this.tboxsIdReg.Location = new System.Drawing.Point(19, 142);
+            this.tboxsIdReg.Name = "tboxsIdReg";
+            this.tboxsIdReg.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdReg.TabIndex = 46;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Arial", 12F);
+            label25.Location = new System.Drawing.Point(30, 108);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(121, 18);
+            label25.TabIndex = 47;
+            label25.Text = "Id seleccionado:";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new System.Drawing.Font("Arial", 12F);
+            label26.Location = new System.Drawing.Point(27, 74);
+            label26.Name = "label26";
+            label26.Size = new System.Drawing.Size(121, 18);
+            label26.TabIndex = 49;
+            label26.Text = "Id seleccionado:";
+            // 
+            // tboxsIdMod
+            // 
+            this.tboxsIdMod.Enabled = false;
+            this.tboxsIdMod.Location = new System.Drawing.Point(16, 108);
+            this.tboxsIdMod.Name = "tboxsIdMod";
+            this.tboxsIdMod.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdMod.TabIndex = 48;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Arial", 12F);
+            label27.Location = new System.Drawing.Point(27, 74);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(121, 18);
+            label27.TabIndex = 49;
+            label27.Text = "Id seleccionado:";
+            // 
+            // tboxsIdElim
+            // 
+            this.tboxsIdElim.Enabled = false;
+            this.tboxsIdElim.Location = new System.Drawing.Point(16, 108);
+            this.tboxsIdElim.Name = "tboxsIdElim";
+            this.tboxsIdElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdElim.TabIndex = 48;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new System.Drawing.Font("Arial", 12F);
+            label28.Location = new System.Drawing.Point(27, 74);
+            label28.Name = "label28";
+            label28.Size = new System.Drawing.Size(121, 18);
+            label28.TabIndex = 63;
+            label28.Text = "Id seleccionado:";
+            // 
+            // tboxsIdBus
+            // 
+            this.tboxsIdBus.Enabled = false;
+            this.tboxsIdBus.Location = new System.Drawing.Point(16, 108);
+            this.tboxsIdBus.Name = "tboxsIdBus";
+            this.tboxsIdBus.Size = new System.Drawing.Size(145, 26);
+            this.tboxsIdBus.TabIndex = 62;
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1108,6 +1200,10 @@
         private System.Windows.Forms.TextBox tboxuEscudoBus;
         private System.Windows.Forms.TextBox tboxsEstadioBus;
         private System.Windows.Forms.TextBox tboxsNombreBus;
+        private System.Windows.Forms.TextBox tboxsIdReg;
+        private System.Windows.Forms.TextBox tboxsIdMod;
+        private System.Windows.Forms.TextBox tboxsIdElim;
+        private System.Windows.Forms.TextBox tboxsIdBus;
     }
 }
 

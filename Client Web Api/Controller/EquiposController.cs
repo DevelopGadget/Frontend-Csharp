@@ -22,9 +22,10 @@ namespace Client_Web_Api.Controller
             
         }
 
-        public async Task Read()
+        public async Task<List<EquiposModel>> Read()
         {
            await Get();
+            return Equipos;
         }
 
         public void Read(string Id)
