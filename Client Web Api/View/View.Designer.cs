@@ -47,6 +47,12 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label15;
+            System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label label17;
+            System.Windows.Forms.Label label18;
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableRegistro = new System.Windows.Forms.DataGridView();
@@ -69,6 +75,19 @@
             this.tboxsEstadioMod = new System.Windows.Forms.TextBox();
             this.tboxsNombreMod = new System.Windows.Forms.TextBox();
             this.btnBuscarMod = new System.Windows.Forms.Button();
+            this.btnBuscarElim = new System.Windows.Forms.Button();
+            this.btnElim = new System.Windows.Forms.Button();
+            this.tableElim = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbEscudoElim = new System.Windows.Forms.PictureBox();
+            this.pbEstadioElim = new System.Windows.Forms.PictureBox();
+            this.tboxuEstadioElim = new System.Windows.Forms.TextBox();
+            this.tboxuEscudoElim = new System.Windows.Forms.TextBox();
+            this.tboxsEstadioElim = new System.Windows.Forms.TextBox();
+            this.tboxsNombreElim = new System.Windows.Forms.TextBox();
+            this.cbMod = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -86,22 +105,32 @@
             label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
             tPestañas.SuspendLayout();
             tbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoReg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).BeginInit();
             tbModificar.SuspendLayout();
+            tbEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Arial", 12F);
-            label1.Location = new System.Drawing.Point(234, 27);
+            label1.Location = new System.Drawing.Point(234, 18);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(68, 18);
             label1.TabIndex = 0;
@@ -111,7 +140,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Arial", 12F);
-            label2.Location = new System.Drawing.Point(355, 27);
+            label2.Location = new System.Drawing.Point(355, 18);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(245, 18);
             label2.TabIndex = 2;
@@ -121,7 +150,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Arial", 12F);
-            label3.Location = new System.Drawing.Point(393, 117);
+            label3.Location = new System.Drawing.Point(393, 108);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(170, 18);
             label3.TabIndex = 4;
@@ -131,7 +160,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Arial", 12F);
-            label4.Location = new System.Drawing.Point(187, 117);
+            label4.Location = new System.Drawing.Point(187, 108);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(171, 18);
             label4.TabIndex = 6;
@@ -141,7 +170,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Arial", 12F);
-            label5.Location = new System.Drawing.Point(346, 224);
+            label5.Location = new System.Drawing.Point(346, 215);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(217, 18);
             label5.TabIndex = 10;
@@ -151,7 +180,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Arial", 12F);
-            label6.Location = new System.Drawing.Point(617, 224);
+            label6.Location = new System.Drawing.Point(600, 215);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(120, 18);
             label6.TabIndex = 11;
@@ -205,7 +234,7 @@
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrar.ImageIndex = 0;
             this.btnRegistrar.ImageList = this.imageList1;
-            this.btnRegistrar.Location = new System.Drawing.Point(603, 141);
+            this.btnRegistrar.Location = new System.Drawing.Point(603, 132);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(117, 45);
             this.btnRegistrar.TabIndex = 13;
@@ -230,7 +259,7 @@
             this.tableRegistro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sNombre,
             this.sEstadio});
-            this.tableRegistro.Location = new System.Drawing.Point(6, 256);
+            this.tableRegistro.Location = new System.Drawing.Point(6, 247);
             this.tableRegistro.Name = "tableRegistro";
             this.tableRegistro.ReadOnly = true;
             this.tableRegistro.Size = new System.Drawing.Size(344, 150);
@@ -254,44 +283,48 @@
             // 
             // pbEscudoReg
             // 
-            this.pbEscudoReg.Location = new System.Drawing.Point(576, 257);
+            this.pbEscudoReg.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbEscudoReg.InitialImage")));
+            this.pbEscudoReg.Location = new System.Drawing.Point(576, 248);
             this.pbEscudoReg.Name = "pbEscudoReg";
             this.pbEscudoReg.Size = new System.Drawing.Size(191, 149);
+            this.pbEscudoReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbEscudoReg.TabIndex = 9;
             this.pbEscudoReg.TabStop = false;
             // 
             // pbEstadioReg
             // 
-            this.pbEstadioReg.Location = new System.Drawing.Point(358, 257);
+            this.pbEstadioReg.InitialImage = global::Client_Web_Api.Properties.Resources.select;
+            this.pbEstadioReg.Location = new System.Drawing.Point(358, 248);
             this.pbEstadioReg.Name = "pbEstadioReg";
             this.pbEstadioReg.Size = new System.Drawing.Size(191, 149);
+            this.pbEstadioReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEstadioReg.TabIndex = 8;
             this.pbEstadioReg.TabStop = false;
             // 
             // tboxuEstadioReg
             // 
-            this.tboxuEstadioReg.Location = new System.Drawing.Point(199, 151);
+            this.tboxuEstadioReg.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioReg.Name = "tboxuEstadioReg";
             this.tboxuEstadioReg.Size = new System.Drawing.Size(145, 26);
             this.tboxuEstadioReg.TabIndex = 7;
             // 
             // tboxuEscudo
             // 
-            this.tboxuEscudo.Location = new System.Drawing.Point(404, 151);
+            this.tboxuEscudo.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudo.Name = "tboxuEscudo";
             this.tboxuEscudo.Size = new System.Drawing.Size(145, 26);
             this.tboxuEscudo.TabIndex = 5;
             // 
             // tboxsEstadioReg
             // 
-            this.tboxsEstadioReg.Location = new System.Drawing.Point(404, 60);
+            this.tboxsEstadioReg.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioReg.Name = "tboxsEstadioReg";
             this.tboxsEstadioReg.Size = new System.Drawing.Size(145, 26);
             this.tboxsEstadioReg.TabIndex = 3;
             // 
             // tboxsNombreReg
             // 
-            this.tboxsNombreReg.Location = new System.Drawing.Point(199, 60);
+            this.tboxsNombreReg.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreReg.Name = "tboxsNombreReg";
             this.tboxsNombreReg.Size = new System.Drawing.Size(145, 26);
             this.tboxsNombreReg.TabIndex = 1;
@@ -299,6 +332,7 @@
             // tbModificar
             // 
             tbModificar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbModificar.Controls.Add(this.cbMod);
             tbModificar.Controls.Add(this.btnBuscarMod);
             tbModificar.Controls.Add(this.btnMod);
             tbModificar.Controls.Add(this.tableMod);
@@ -327,6 +361,22 @@
             // tbEliminar
             // 
             tbEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            tbEliminar.Controls.Add(this.checkBox1);
+            tbEliminar.Controls.Add(this.btnBuscarElim);
+            tbEliminar.Controls.Add(this.btnElim);
+            tbEliminar.Controls.Add(this.tableElim);
+            tbEliminar.Controls.Add(label13);
+            tbEliminar.Controls.Add(label14);
+            tbEliminar.Controls.Add(this.pbEscudoElim);
+            tbEliminar.Controls.Add(this.pbEstadioElim);
+            tbEliminar.Controls.Add(this.tboxuEstadioElim);
+            tbEliminar.Controls.Add(label15);
+            tbEliminar.Controls.Add(this.tboxuEscudoElim);
+            tbEliminar.Controls.Add(label16);
+            tbEliminar.Controls.Add(this.tboxsEstadioElim);
+            tbEliminar.Controls.Add(label17);
+            tbEliminar.Controls.Add(this.tboxsNombreElim);
+            tbEliminar.Controls.Add(label18);
             tbEliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             tbEliminar.ImageIndex = 1;
             tbEliminar.Location = new System.Drawing.Point(4, 54);
@@ -356,7 +406,7 @@
             this.btnMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMod.ImageIndex = 3;
             this.btnMod.ImageList = this.imageList1;
-            this.btnMod.Location = new System.Drawing.Point(604, 134);
+            this.btnMod.Location = new System.Drawing.Point(603, 132);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(117, 45);
             this.btnMod.TabIndex = 27;
@@ -372,7 +422,7 @@
             this.tableMod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.tableMod.Location = new System.Drawing.Point(7, 249);
+            this.tableMod.Location = new System.Drawing.Point(6, 247);
             this.tableMod.Name = "tableMod";
             this.tableMod.ReadOnly = true;
             this.tableMod.Size = new System.Drawing.Size(344, 150);
@@ -398,7 +448,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Arial", 12F);
-            label7.Location = new System.Drawing.Point(618, 217);
+            label7.Location = new System.Drawing.Point(600, 215);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(120, 18);
             label7.TabIndex = 25;
@@ -408,7 +458,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Arial", 12F);
-            label8.Location = new System.Drawing.Point(347, 217);
+            label8.Location = new System.Drawing.Point(346, 215);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(217, 18);
             label8.TabIndex = 24;
@@ -416,7 +466,7 @@
             // 
             // pbEscudoMod
             // 
-            this.pbEscudoMod.Location = new System.Drawing.Point(577, 250);
+            this.pbEscudoMod.Location = new System.Drawing.Point(576, 248);
             this.pbEscudoMod.Name = "pbEscudoMod";
             this.pbEscudoMod.Size = new System.Drawing.Size(191, 149);
             this.pbEscudoMod.TabIndex = 23;
@@ -424,7 +474,7 @@
             // 
             // pbEstadioMod
             // 
-            this.pbEstadioMod.Location = new System.Drawing.Point(359, 250);
+            this.pbEstadioMod.Location = new System.Drawing.Point(358, 248);
             this.pbEstadioMod.Name = "pbEstadioMod";
             this.pbEstadioMod.Size = new System.Drawing.Size(191, 149);
             this.pbEstadioMod.TabIndex = 22;
@@ -432,7 +482,7 @@
             // 
             // tboxuEstadioMod
             // 
-            this.tboxuEstadioMod.Location = new System.Drawing.Point(200, 144);
+            this.tboxuEstadioMod.Location = new System.Drawing.Point(199, 142);
             this.tboxuEstadioMod.Name = "tboxuEstadioMod";
             this.tboxuEstadioMod.Size = new System.Drawing.Size(145, 26);
             this.tboxuEstadioMod.TabIndex = 21;
@@ -441,7 +491,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Arial", 12F);
-            label9.Location = new System.Drawing.Point(188, 110);
+            label9.Location = new System.Drawing.Point(187, 108);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(171, 18);
             label9.TabIndex = 20;
@@ -449,7 +499,7 @@
             // 
             // tboxuEscudoMod
             // 
-            this.tboxuEscudoMod.Location = new System.Drawing.Point(405, 144);
+            this.tboxuEscudoMod.Location = new System.Drawing.Point(404, 142);
             this.tboxuEscudoMod.Name = "tboxuEscudoMod";
             this.tboxuEscudoMod.Size = new System.Drawing.Size(145, 26);
             this.tboxuEscudoMod.TabIndex = 19;
@@ -458,7 +508,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Arial", 12F);
-            label10.Location = new System.Drawing.Point(394, 110);
+            label10.Location = new System.Drawing.Point(393, 108);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(170, 18);
             label10.TabIndex = 18;
@@ -466,7 +516,7 @@
             // 
             // tboxsEstadioMod
             // 
-            this.tboxsEstadioMod.Location = new System.Drawing.Point(405, 53);
+            this.tboxsEstadioMod.Location = new System.Drawing.Point(404, 51);
             this.tboxsEstadioMod.Name = "tboxsEstadioMod";
             this.tboxsEstadioMod.Size = new System.Drawing.Size(145, 26);
             this.tboxsEstadioMod.TabIndex = 17;
@@ -475,7 +525,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Arial", 12F);
-            label11.Location = new System.Drawing.Point(356, 20);
+            label11.Location = new System.Drawing.Point(355, 18);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(245, 18);
             label11.TabIndex = 16;
@@ -483,7 +533,7 @@
             // 
             // tboxsNombreMod
             // 
-            this.tboxsNombreMod.Location = new System.Drawing.Point(200, 53);
+            this.tboxsNombreMod.Location = new System.Drawing.Point(199, 51);
             this.tboxsNombreMod.Name = "tboxsNombreMod";
             this.tboxsNombreMod.Size = new System.Drawing.Size(145, 26);
             this.tboxsNombreMod.TabIndex = 15;
@@ -492,7 +542,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new System.Drawing.Font("Arial", 12F);
-            label12.Location = new System.Drawing.Point(235, 20);
+            label12.Location = new System.Drawing.Point(234, 18);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(68, 18);
             label12.TabIndex = 14;
@@ -504,13 +554,201 @@
             this.btnBuscarMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarMod.ImageIndex = 2;
             this.btnBuscarMod.ImageList = this.imageList1;
-            this.btnBuscarMod.Location = new System.Drawing.Point(27, 190);
+            this.btnBuscarMod.Location = new System.Drawing.Point(26, 188);
             this.btnBuscarMod.Name = "btnBuscarMod";
             this.btnBuscarMod.Size = new System.Drawing.Size(117, 45);
             this.btnBuscarMod.TabIndex = 28;
             this.btnBuscarMod.Text = "Buscar";
             this.btnBuscarMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarMod.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarElim
+            // 
+            this.btnBuscarElim.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnBuscarElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarElim.ImageIndex = 2;
+            this.btnBuscarElim.ImageList = this.imageList1;
+            this.btnBuscarElim.Location = new System.Drawing.Point(26, 188);
+            this.btnBuscarElim.Name = "btnBuscarElim";
+            this.btnBuscarElim.Size = new System.Drawing.Size(117, 45);
+            this.btnBuscarElim.TabIndex = 43;
+            this.btnBuscarElim.Text = "Buscar";
+            this.btnBuscarElim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarElim.UseVisualStyleBackColor = true;
+            // 
+            // btnElim
+            // 
+            this.btnElim.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElim.ImageIndex = 1;
+            this.btnElim.ImageList = this.imageList1;
+            this.btnElim.Location = new System.Drawing.Point(603, 132);
+            this.btnElim.Name = "btnElim";
+            this.btnElim.Size = new System.Drawing.Size(117, 45);
+            this.btnElim.TabIndex = 42;
+            this.btnElim.Text = "Eliminar";
+            this.btnElim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnElim.UseVisualStyleBackColor = true;
+            // 
+            // tableElim
+            // 
+            this.tableElim.AllowUserToAddRows = false;
+            this.tableElim.AllowUserToDeleteRows = false;
+            this.tableElim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableElim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.tableElim.Location = new System.Drawing.Point(6, 247);
+            this.tableElim.Name = "tableElim";
+            this.tableElim.ReadOnly = true;
+            this.tableElim.Size = new System.Drawing.Size(344, 150);
+            this.tableElim.TabIndex = 41;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Estadio";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 12F);
+            label13.Location = new System.Drawing.Point(600, 215);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(120, 18);
+            label13.TabIndex = 40;
+            label13.Text = "Foto del escudo";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Arial", 12F);
+            label14.Location = new System.Drawing.Point(346, 215);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(217, 18);
+            label14.TabIndex = 39;
+            label14.Text = "Foto del estadio donde reside";
+            // 
+            // pbEscudoElim
+            // 
+            this.pbEscudoElim.Location = new System.Drawing.Point(576, 248);
+            this.pbEscudoElim.Name = "pbEscudoElim";
+            this.pbEscudoElim.Size = new System.Drawing.Size(191, 149);
+            this.pbEscudoElim.TabIndex = 38;
+            this.pbEscudoElim.TabStop = false;
+            // 
+            // pbEstadioElim
+            // 
+            this.pbEstadioElim.Location = new System.Drawing.Point(358, 248);
+            this.pbEstadioElim.Name = "pbEstadioElim";
+            this.pbEstadioElim.Size = new System.Drawing.Size(191, 149);
+            this.pbEstadioElim.TabIndex = 37;
+            this.pbEstadioElim.TabStop = false;
+            // 
+            // tboxuEstadioElim
+            // 
+            this.tboxuEstadioElim.Enabled = false;
+            this.tboxuEstadioElim.Location = new System.Drawing.Point(199, 142);
+            this.tboxuEstadioElim.Name = "tboxuEstadioElim";
+            this.tboxuEstadioElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEstadioElim.TabIndex = 36;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Arial", 12F);
+            label15.Location = new System.Drawing.Point(187, 108);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(171, 18);
+            label15.TabIndex = 35;
+            label15.Text = "Url con foto del estadio:";
+            // 
+            // tboxuEscudoElim
+            // 
+            this.tboxuEscudoElim.Enabled = false;
+            this.tboxuEscudoElim.Location = new System.Drawing.Point(404, 142);
+            this.tboxuEscudoElim.Name = "tboxuEscudoElim";
+            this.tboxuEscudoElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxuEscudoElim.TabIndex = 34;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Arial", 12F);
+            label16.Location = new System.Drawing.Point(393, 108);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(170, 18);
+            label16.TabIndex = 33;
+            label16.Text = "Url con foto del escudo:";
+            // 
+            // tboxsEstadioElim
+            // 
+            this.tboxsEstadioElim.Enabled = false;
+            this.tboxsEstadioElim.Location = new System.Drawing.Point(404, 51);
+            this.tboxsEstadioElim.Name = "tboxsEstadioElim";
+            this.tboxsEstadioElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsEstadioElim.TabIndex = 32;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Arial", 12F);
+            label17.Location = new System.Drawing.Point(355, 18);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(245, 18);
+            label17.TabIndex = 31;
+            label17.Text = "Nombre del estadio donde reside:";
+            // 
+            // tboxsNombreElim
+            // 
+            this.tboxsNombreElim.Enabled = false;
+            this.tboxsNombreElim.Location = new System.Drawing.Point(199, 51);
+            this.tboxsNombreElim.Name = "tboxsNombreElim";
+            this.tboxsNombreElim.Size = new System.Drawing.Size(145, 26);
+            this.tboxsNombreElim.TabIndex = 30;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Arial", 12F);
+            label18.Location = new System.Drawing.Point(234, 18);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(68, 18);
+            label18.TabIndex = 29;
+            label18.Text = "Nombre:";
+            // 
+            // cbMod
+            // 
+            this.cbMod.AutoSize = true;
+            this.cbMod.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbMod.Location = new System.Drawing.Point(149, 200);
+            this.cbMod.Name = "cbMod";
+            this.cbMod.Size = new System.Drawing.Size(123, 22);
+            this.cbMod.TabIndex = 29;
+            this.cbMod.Text = "Seleccionado";
+            this.cbMod.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Arial", 12F);
+            this.checkBox1.Location = new System.Drawing.Point(149, 200);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(123, 22);
+            this.checkBox1.TabIndex = 44;
+            this.checkBox1.Text = "Seleccionado";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // View
             // 
@@ -534,9 +772,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).EndInit();
             tbModificar.ResumeLayout(false);
             tbModificar.PerformLayout();
+            tbEliminar.ResumeLayout(false);
+            tbEliminar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,6 +807,19 @@
         private System.Windows.Forms.TextBox tboxuEscudoMod;
         private System.Windows.Forms.TextBox tboxsEstadioMod;
         private System.Windows.Forms.TextBox tboxsNombreMod;
+        private System.Windows.Forms.CheckBox cbMod;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnBuscarElim;
+        private System.Windows.Forms.Button btnElim;
+        private System.Windows.Forms.DataGridView tableElim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.PictureBox pbEscudoElim;
+        private System.Windows.Forms.PictureBox pbEstadioElim;
+        private System.Windows.Forms.TextBox tboxuEstadioElim;
+        private System.Windows.Forms.TextBox tboxuEscudoElim;
+        private System.Windows.Forms.TextBox tboxsEstadioElim;
+        private System.Windows.Forms.TextBox tboxsNombreElim;
     }
 }
 
