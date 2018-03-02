@@ -100,6 +100,7 @@ namespace Client_Web_Api.Controller
             client.BaseAddress = new Uri(BaseAdress);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.Timeout = new TimeSpan(TimeSpan.TicksPerSecond * 10);
         }
     }
 }

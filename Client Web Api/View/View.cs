@@ -1,8 +1,6 @@
 ﻿using Client_Web_Api.Controller;
 using Client_Web_Api.Model;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client_Web_Api
@@ -12,9 +10,8 @@ namespace Client_Web_Api
         public View()
         {
             InitializeComponent();
-            Listar();
         }
-    
+
         private EquiposController Equipos = new EquiposController();
 
         private void View_Load(object sender, EventArgs e)
@@ -25,7 +22,7 @@ namespace Client_Web_Api
 
         private void tableRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg, 
+            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg, tboxsIdReg,
                 tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo);
         }
 
@@ -37,10 +34,36 @@ namespace Client_Web_Api
 
         private void tPestañas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Listar();
+            if (tPestañas.SelectedIndex == 0)
+            {
+                tboxsNombreReg.Focus();
+                BorrarText(tboxsIdReg, tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo);
+                ControlText(tboxsNombreReg, tboxsEstadioReg, tboxuEstadioReg, tboxuEscudo, true);
+            } else if (tPestañas.SelectedIndex == 1)
+            {
+                tboxsNombreMod.Focus();
+                BorrarText(tboxsIdMod, tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod);
+                ControlText(tboxsNombreMod, tboxsEstadioMod, tboxuEstadioMod, tboxuEscudoMod, false);
+            }else if(tPestañas.SelectedIndex == 2)
+            {
+                BorrarText(tboxsIdElim, tboxsNombreElim, tboxsEstadioElim, tboxuEstadioElim, tboxuEscudoElim);
+                ControlText(tboxsNombreElim, tboxsEstadioElim, tboxuEstadioElim, tboxuEscudoElim, false);
+            }
+            else
+            {
+                BorrarText(tboxsIdBus, tboxsNombreBus, tboxsEstadioBus, tboxuEstadioBus, tboxuEscudoBus);
+                ControlText(tboxsNombreBus, tboxsEstadioBus, tboxuEstadioBus, tboxuEscudoBus, false);
+            }
         }
 
-        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, 
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
+        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio,
             PictureBox Escudo, TextBox Id, TextBox sNombre, TextBox sEstadio, TextBox uEstadio,
             TextBox uEscudo)
         {
@@ -48,7 +71,7 @@ namespace Client_Web_Api
             {
                 if (Tabla.CurrentRow.Cells[0].Value.Equals(Equipos.Equipos[i].Id))
                 {
-                    PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(), 
+                    PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(),
                         Equipos.Equipos[i].uEscudo.ToString());
                     Check.Checked = true;
                     Id.Text = Equipos.Equipos[i].Id;
@@ -77,27 +100,45 @@ namespace Client_Web_Api
 
         private async void ProgressAsync()
         {
-            var v = await Equipos.Read();
-            prbBarra.Step = 1;
-            for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i = i + prbBarra.Step)
+            try
             {
-                prbBarra.PerformStep();
+                var v = await Equipos.Read();
+                prbBarra.Step = 1;
+                if (v == null)
+                {
+                    MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Listar();
+                }
+                for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i = (int) i + prbBarra.Step)
+                {
+                    prbBarra.PerformStep();
+                }
             }
-            if (v == null)
+            catch (Exception)
             {
-                MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tiempo De Espera Agotado Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private async void Tablas(DataGridView Table)
         {
-            while (Table.Rows.Count != 0)
+            try
             {
-                Table.Rows.RemoveAt(0);
+                while (Table.Rows.Count != 0)
+                {
+                    Table.Rows.RemoveAt(0);
+                }
+                foreach (EquiposModel Ob in await Equipos.Read())
+                {
+                    Table.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sEstadio });
+                }
             }
-            foreach (EquiposModel Ob in await Equipos.Read())
+            catch (Exception)
             {
-                Table.Rows.Add(new String[] {Ob.Id, Ob.sNombre, Ob.sEstadio });
+
             }
         }
 
@@ -109,13 +150,13 @@ namespace Client_Web_Api
             Tablas(tableBus);
         }
 
-        private void ContrlTexto(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
+        private void BorrarText(TextBox Id,TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
         {
+            Id.Text = null;
             sNombre.Text = null;
             sEstadio.Text = null;
             uEstadio.Text = null;
             uEscudo.Text = null;
         }
-
     }
 }

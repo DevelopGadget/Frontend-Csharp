@@ -35,11 +35,16 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
-            System.Windows.Forms.TabControl tPestañas;
             System.Windows.Forms.TabPage tbRegistrar;
             System.Windows.Forms.Label label25;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TabPage tbModificar;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label26;
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
@@ -63,23 +68,25 @@
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
             System.Windows.Forms.Label label24;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tPestañas = new System.Windows.Forms.TabControl();
             this.tboxsIdReg = new System.Windows.Forms.TextBox();
             this.cbReg = new System.Windows.Forms.CheckBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableRegistro = new System.Windows.Forms.DataGridView();
+            this.sId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEstadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbEscudoReg = new System.Windows.Forms.PictureBox();
             this.pbEstadioReg = new System.Windows.Forms.PictureBox();
             this.tboxuEstadioReg = new System.Windows.Forms.TextBox();
             this.tboxuEscudo = new System.Windows.Forms.TextBox();
             this.tboxsEstadioReg = new System.Windows.Forms.TextBox();
             this.tboxsNombreReg = new System.Windows.Forms.TextBox();
+            this.tableMod = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tboxsIdMod = new System.Windows.Forms.TextBox();
             this.tboxsBuscarMod = new System.Windows.Forms.TextBox();
             this.cbMod = new System.Windows.Forms.CheckBox();
@@ -91,6 +98,10 @@
             this.tboxuEscudoMod = new System.Windows.Forms.TextBox();
             this.tboxsEstadioMod = new System.Windows.Forms.TextBox();
             this.tboxsNombreMod = new System.Windows.Forms.TextBox();
+            this.tableElim = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tboxsIdElim = new System.Windows.Forms.TextBox();
             this.tboxsBuscarElim = new System.Windows.Forms.TextBox();
             this.cbElim = new System.Windows.Forms.CheckBox();
@@ -102,6 +113,10 @@
             this.tboxuEscudoElim = new System.Windows.Forms.TextBox();
             this.tboxsEstadioElim = new System.Windows.Forms.TextBox();
             this.tboxsNombreElim = new System.Windows.Forms.TextBox();
+            this.tableBus = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tboxsIdBus = new System.Windows.Forms.TextBox();
             this.tboxsBuscar = new System.Windows.Forms.TextBox();
             this.cbBuscar = new System.Windows.Forms.CheckBox();
@@ -113,28 +128,13 @@
             this.tboxsEstadioBus = new System.Windows.Forms.TextBox();
             this.tboxsNombreBus = new System.Windows.Forms.TextBox();
             this.prbBarra = new System.Windows.Forms.ProgressBar();
-            this.tableMod = new System.Windows.Forms.DataGridView();
-            this.tableElim = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableBus = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEstadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCargar = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
-            tPestañas = new System.Windows.Forms.TabControl();
             tbRegistrar = new System.Windows.Forms.TabPage();
             label25 = new System.Windows.Forms.Label();
             tbModificar = new System.Windows.Forms.TabPage();
@@ -161,23 +161,23 @@
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
             label24 = new System.Windows.Forms.Label();
-            tPestañas.SuspendLayout();
+            this.tPestañas.SuspendLayout();
             tbRegistrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoReg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).BeginInit();
             tbModificar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).BeginInit();
             tbEliminar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).BeginInit();
             tbBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoBus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioBus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableMod)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBus)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -242,20 +242,20 @@
             // 
             // tPestañas
             // 
-            tPestañas.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            tPestañas.Controls.Add(tbRegistrar);
-            tPestañas.Controls.Add(tbModificar);
-            tPestañas.Controls.Add(tbEliminar);
-            tPestañas.Controls.Add(tbBuscar);
-            tPestañas.Font = new System.Drawing.Font("Arial", 10F);
-            tPestañas.ImageList = this.imageList1;
-            tPestañas.ItemSize = new System.Drawing.Size(60, 50);
-            tPestañas.Location = new System.Drawing.Point(0, 0);
-            tPestañas.Name = "tPestañas";
-            tPestañas.SelectedIndex = 0;
-            tPestañas.Size = new System.Drawing.Size(785, 469);
-            tPestañas.TabIndex = 0;
-            tPestañas.SelectedIndexChanged += new System.EventHandler(this.tPestañas_SelectedIndexChanged);
+            this.tPestañas.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tPestañas.Controls.Add(tbRegistrar);
+            this.tPestañas.Controls.Add(tbModificar);
+            this.tPestañas.Controls.Add(tbEliminar);
+            this.tPestañas.Controls.Add(tbBuscar);
+            this.tPestañas.Font = new System.Drawing.Font("Arial", 10F);
+            this.tPestañas.ImageList = this.imageList1;
+            this.tPestañas.ItemSize = new System.Drawing.Size(60, 50);
+            this.tPestañas.Location = new System.Drawing.Point(0, 0);
+            this.tPestañas.Name = "tPestañas";
+            this.tPestañas.SelectedIndex = 0;
+            this.tPestañas.Size = new System.Drawing.Size(785, 469);
+            this.tPestañas.TabIndex = 0;
+            this.tPestañas.SelectedIndexChanged += new System.EventHandler(this.tPestañas_SelectedIndexChanged);
             // 
             // tbRegistrar
             // 
@@ -357,6 +357,33 @@
             this.tableRegistro.TabIndex = 12;
             this.tableRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableRegistro_CellContentClick);
             // 
+            // sId
+            // 
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 10F);
+            this.sId.DefaultCellStyle = dataGridViewCellStyle13;
+            this.sId.HeaderText = "Id";
+            this.sId.Name = "sId";
+            this.sId.ReadOnly = true;
+            this.sId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // sNombre
+            // 
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 10F);
+            this.sNombre.DefaultCellStyle = dataGridViewCellStyle14;
+            this.sNombre.HeaderText = "Nombre";
+            this.sNombre.Name = "sNombre";
+            this.sNombre.ReadOnly = true;
+            this.sNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // sEstadio
+            // 
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 10F);
+            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle15;
+            this.sEstadio.HeaderText = "Estadio";
+            this.sEstadio.Name = "sEstadio";
+            this.sEstadio.ReadOnly = true;
+            this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // pbEscudoReg
             // 
             this.pbEscudoReg.Image = global::Client_Web_Api.Properties.Resources.sele;
@@ -442,6 +469,49 @@
             tbModificar.TabIndex = 1;
             tbModificar.Text = "Modificar";
             tbModificar.UseVisualStyleBackColor = true;
+            // 
+            // tableMod
+            // 
+            this.tableMod.AllowUserToAddRows = false;
+            this.tableMod.AllowUserToDeleteRows = false;
+            this.tableMod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableMod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn7});
+            this.tableMod.Location = new System.Drawing.Point(6, 247);
+            this.tableMod.Name = "tableMod";
+            this.tableMod.ReadOnly = true;
+            this.tableMod.Size = new System.Drawing.Size(344, 150);
+            this.tableMod.TabIndex = 50;
+            this.tableMod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableMod_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Estadio";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // label26
             // 
@@ -659,6 +729,42 @@
             tbEliminar.Text = "Eliminar";
             tbEliminar.UseVisualStyleBackColor = true;
             // 
+            // tableElim
+            // 
+            this.tableElim.AllowUserToAddRows = false;
+            this.tableElim.AllowUserToDeleteRows = false;
+            this.tableElim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableElim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn8});
+            this.tableElim.Location = new System.Drawing.Point(6, 247);
+            this.tableElim.Name = "tableElim";
+            this.tableElim.ReadOnly = true;
+            this.tableElim.Size = new System.Drawing.Size(344, 150);
+            this.tableElim.TabIndex = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Estadio";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // label27
             // 
             label27.AutoSize = true;
@@ -874,6 +980,42 @@
             tbBuscar.Text = "Buscar";
             tbBuscar.UseVisualStyleBackColor = true;
             // 
+            // tableBus
+            // 
+            this.tableBus.AllowUserToAddRows = false;
+            this.tableBus.AllowUserToDeleteRows = false;
+            this.tableBus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableBus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn9});
+            this.tableBus.Location = new System.Drawing.Point(6, 247);
+            this.tableBus.Name = "tableBus";
+            this.tableBus.ReadOnly = true;
+            this.tableBus.Size = new System.Drawing.Size(344, 150);
+            this.tableBus.TabIndex = 64;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Estadio";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // label28
             // 
             label28.AutoSize = true;
@@ -1045,169 +1187,42 @@
             // 
             // prbBarra
             // 
-            this.prbBarra.Location = new System.Drawing.Point(4, 475);
+            this.prbBarra.Location = new System.Drawing.Point(4, 476);
             this.prbBarra.Name = "prbBarra";
-            this.prbBarra.Size = new System.Drawing.Size(777, 23);
+            this.prbBarra.Size = new System.Drawing.Size(580, 25);
             this.prbBarra.TabIndex = 1;
             // 
-            // tableMod
+            // btnCargar
             // 
-            this.tableMod.AllowUserToAddRows = false;
-            this.tableMod.AllowUserToDeleteRows = false;
-            this.tableMod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableMod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn7});
-            this.tableMod.Location = new System.Drawing.Point(6, 247);
-            this.tableMod.Name = "tableMod";
-            this.tableMod.ReadOnly = true;
-            this.tableMod.Size = new System.Drawing.Size(344, 150);
-            this.tableMod.TabIndex = 50;
-            this.tableMod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableMod_CellContentClick);
-            // 
-            // tableElim
-            // 
-            this.tableElim.AllowUserToAddRows = false;
-            this.tableElim.AllowUserToDeleteRows = false;
-            this.tableElim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableElim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn8});
-            this.tableElim.Location = new System.Drawing.Point(6, 247);
-            this.tableElim.Name = "tableElim";
-            this.tableElim.ReadOnly = true;
-            this.tableElim.Size = new System.Drawing.Size(344, 150);
-            this.tableElim.TabIndex = 50;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Estadio";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // tableBus
-            // 
-            this.tableBus.AllowUserToAddRows = false;
-            this.tableBus.AllowUserToDeleteRows = false;
-            this.tableBus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableBus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn9});
-            this.tableBus.Location = new System.Drawing.Point(6, 247);
-            this.tableBus.Name = "tableBus";
-            this.tableBus.ReadOnly = true;
-            this.tableBus.Size = new System.Drawing.Size(344, 150);
-            this.tableBus.TabIndex = 64;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Estadio";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // sId
-            // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 10F);
-            this.sId.DefaultCellStyle = dataGridViewCellStyle10;
-            this.sId.HeaderText = "Id";
-            this.sId.Name = "sId";
-            this.sId.ReadOnly = true;
-            this.sId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // sNombre
-            // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 10F);
-            this.sNombre.DefaultCellStyle = dataGridViewCellStyle11;
-            this.sNombre.HeaderText = "Nombre";
-            this.sNombre.Name = "sNombre";
-            this.sNombre.ReadOnly = true;
-            this.sNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // sEstadio
-            // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 10F);
-            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle12;
-            this.sEstadio.HeaderText = "Estadio";
-            this.sEstadio.Name = "sEstadio";
-            this.sEstadio.ReadOnly = true;
-            this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Estadio";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnCargar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargar.ImageList = this.imageList1;
+            this.btnCargar.Location = new System.Drawing.Point(631, 471);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(120, 35);
+            this.btnCargar.TabIndex = 48;
+            this.btnCargar.Text = "Cargar Datos";
+            this.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 501);
+            this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.prbBarra);
-            this.Controls.Add(tPestañas);
+            this.Controls.Add(this.tPestañas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 540);
-            this.MinimumSize = new System.Drawing.Size(800, 540);
+            this.MaximumSize = new System.Drawing.Size(800, 550);
+            this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "View";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client Teams";
             this.Load += new System.EventHandler(this.View_Load);
-            tPestañas.ResumeLayout(false);
+            this.tPestañas.ResumeLayout(false);
             tbRegistrar.ResumeLayout(false);
             tbRegistrar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableRegistro)).EndInit();
@@ -1215,19 +1230,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioReg)).EndInit();
             tbModificar.ResumeLayout(false);
             tbModificar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioMod)).EndInit();
             tbEliminar.ResumeLayout(false);
             tbEliminar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoElim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioElim)).EndInit();
             tbBuscar.ResumeLayout(false);
             tbBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudoBus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadioBus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableMod)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableElim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1292,6 +1307,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.TabControl tPestañas;
     }
 }
 
