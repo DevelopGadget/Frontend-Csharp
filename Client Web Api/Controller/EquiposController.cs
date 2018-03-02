@@ -12,7 +12,7 @@ namespace Client_Web_Api.Controller
 {
     class EquiposController
     {
-        private List<EquiposModel> Equipos { get; set; }
+        public List<EquiposModel> Equipos { get; set; }
         private string BaseAdress = "https://out-jskdocjpwr.now.sh/";
         private HttpResponseMessage resp { get; set; }
         private HttpClient client { get; set; }
@@ -24,8 +24,8 @@ namespace Client_Web_Api.Controller
 
         public async Task<List<EquiposModel>> Read()
         {
-           await Get();
-            return Equipos;
+            if (await Get()) return Equipos;
+            else return null;
         }
 
         public void Read(string Id)
@@ -43,12 +43,12 @@ namespace Client_Web_Api.Controller
 
         }
 
-        private async Task Get()
+        private async Task<bool> Get()
         {
             using (client = new HttpClient())
             {
                 Client();
-                 resp = await client.GetAsync("api/Equipos");
+                resp = await client.GetAsync("api/Equipos");
                 if (resp.IsSuccessStatusCode)
                 {
                     var json = await resp.Content.ReadAsStringAsync();
@@ -56,7 +56,9 @@ namespace Client_Web_Api.Controller
                     json = json.TrimEnd('\"');
                     json = json.Replace("\\", "");
                     Equipos = JsonConvert.DeserializeObject<List<EquiposModel>>(json);
+                    return true;
                 }
+                return false;
             }
         }
 

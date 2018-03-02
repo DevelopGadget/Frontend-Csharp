@@ -17,6 +17,50 @@ namespace Client_Web_Api
     
         private EquiposController Equipos = new EquiposController();
 
+        private void View_Load(object sender, EventArgs e)
+        {
+            ProgressAsync();
+            tboxsNombreReg.Focus();
+        }
+
+        private void tableRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Check(tableRegistro, cbReg, pbEstadioReg, pbEscudoReg);
+        }
+
+        private void Check(DataGridView Tabla, CheckBox Check, PictureBox Estadio, PictureBox Escudo)
+        {
+            for (int i = 0; i < Equipos.Equipos.Count; i++)
+            {
+                if (Tabla.CurrentRow.Cells[0].Value.Equals(Equipos.Equipos[i].Id))
+                {
+                    PictBox(Estadio, Escudo, Equipos.Equipos[i].uEstadio.ToString(), 
+                        Equipos.Equipos[i].uEscudo.ToString());
+                    break;
+                }
+            }
+        }
+
+        private void PictBox(PictureBox Estadio, PictureBox Escudo, string Url_Estadio, string Url_Escudo)
+        {
+            Estadio.ImageLocation = Url_Estadio;
+            Escudo.ImageLocation = Url_Escudo;
+        }
+
+        private async void ProgressAsync()
+        {
+            var v = await Equipos.Read();
+            prbBarra.Step = 1;
+            for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i = i + prbBarra.Step)
+            {
+                prbBarra.PerformStep();
+            }
+            if (v == null)
+            {
+                MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private async void Tablas(DataGridView Table)
         {
             while (Table.Rows.Count != 0)
@@ -25,7 +69,7 @@ namespace Client_Web_Api
             }
             foreach (EquiposModel Ob in await Equipos.Read())
             {
-                Table.Rows.Add(new String[] {Ob.sNombre, Ob.sEstadio });
+                Table.Rows.Add(new String[] {Ob.Id, Ob.sNombre, Ob.sEstadio });
             }
         }
 
@@ -34,7 +78,17 @@ namespace Client_Web_Api
             Tablas(tableRegistro);
             Tablas(tableMod);
             Tablas(tableElim);
-            Tablas(tableBuscar);
+            Tablas(tableBus);
         }
+
+        private void BorrarTextBox(TextBox sNombre, TextBox sEstadio, TextBox uEstadio, TextBox uEscudo)
+        {
+            sNombre.Text = null;
+            sEstadio.Text = null;
+            uEstadio.Text = null;
+            uEscudo.Text = null;
+        }
+
+
     }
 }
