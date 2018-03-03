@@ -18,12 +18,14 @@ namespace Client_Web_Api
 
         private void View_Load(object sender, EventArgs e)
         {
+            textBox1.Text = "Datos Cargando Por Favor Espere...";
             ProgressAsync();
             tboxsNombre.Focus();
         }
 
         private async void btnCargar_ClickAsync(object sender, EventArgs e)
         {
+            textBox1.Text = "Datos Cargando Por Favor Espere...";
             btnCargar.Enabled = false;
             Tablas(await Equipos.Read());
             Progress();
@@ -45,8 +47,8 @@ namespace Client_Web_Api
 
         private async void btnBuscar_ClickAsync(object sender, EventArgs e)
         {
+            textBox1.Text = "Datos Cargando Por Favor Espere...";
             ControlEn(false);
-            BorrarText();
             try
             {
                 if (string.IsNullOrEmpty(tboxsBuscar.Text))
@@ -63,6 +65,7 @@ namespace Client_Web_Api
                 {
                     List<EquiposModel> v = new List<EquiposModel>();
                     v.Add(await Equipos.Read(tboxsBuscar.Text));
+                    Progress();
                     Tablas(v);
                 }
             }
@@ -81,6 +84,7 @@ namespace Client_Web_Api
             {
                 if (TabaDatos.CurrentRow.Cells[0].Value.Equals(Equipos.Equipos[i].Id))
                 {
+                    Clipboard.SetText(Equipos.Equipos[i].Id);
                     pbEstadio.ImageLocation = Equipos.Equipos[i].uEstadio.ToString();
                     pbEscudo.ImageLocation = Equipos.Equipos[i].uEscudo.ToString();
                     tboxsId.Text = Equipos.Equipos[i].Id;
@@ -89,6 +93,7 @@ namespace Client_Web_Api
                     tboxuEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
                     tboxuEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
                     ControlEn(true);
+                    MessageBox.Show("Id Copiado Al Portapapeles", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 }
             }
@@ -99,6 +104,7 @@ namespace Client_Web_Api
             btnCargar.Enabled = false;
             try
             {
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
                 var v = await Equipos.Read();
                 if (v == null)
                 {
