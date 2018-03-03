@@ -24,7 +24,10 @@ namespace Client_Web_Api
 
         private async void btnCargar_ClickAsync(object sender, EventArgs e)
         {
+            btnCargar.Enabled = false;
             Tablas(await Equipos.Read());
+            Progress();
+            btnCancelar.PerformClick();
         }
 
         private void TabaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -32,10 +35,18 @@ namespace Client_Web_Api
             Check();
         }
 
-        private async void btnBuscar_ClickAsync(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             BorrarText();
             ControlEn(false);
+            pbEstadio.Image = Properties.Resources.select;
+            pbEscudo.Image = Properties.Resources.select;
+        }
+
+        private async void btnBuscar_ClickAsync(object sender, EventArgs e)
+        {
+            ControlEn(false);
+            BorrarText();
             try
             {
                 if (string.IsNullOrEmpty(tboxsBuscar.Text))
@@ -85,6 +96,7 @@ namespace Client_Web_Api
 
         private async void ProgressAsync()
         {
+            btnCargar.Enabled = false;
             try
             {
                 var v = await Equipos.Read();
@@ -101,6 +113,7 @@ namespace Client_Web_Api
             }
             catch (Exception)
             {
+                btnCargar.Enabled = true;
                 MessageBox.Show("Tiempo De Espera Agotado Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -143,17 +156,30 @@ namespace Client_Web_Api
         }
         private void Progress()
         {
-            prbBarra.Visible = true;
-            prbBarra.Step = 1;
+            VistaPro(true);
+            BorrarText();
             prbBarra.Value = 0;
-            lPb.Visible = true;
-            for (int i = prbBarra.Minimum; i < prbBarra.Maximum; i++)
+            for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(50);
                 prbBarra.PerformStep();
+                Thread.Sleep(15);
             }
-            lPb.Visible = false;
-            prbBarra.Visible = false;
+            VistaPro(false);
+            btnCargar.Enabled = true;
+            ControlEn(false);
+            textBox1.Text = "Datos Cargados";
+        }
+
+        private void VistaPro(bool cond)
+        {
+            textBox1.Enabled = true;
+            textBox1.Text = "Datos Cargando Por Favor Espere...";
+            textBox1.Enabled = false;
+            btnCargar.Enabled = !cond;
+            prbBarra.Visible = cond;
+            ControlEn(!cond);
+            btnReg.Enabled = !cond;
+            btnBuscar.Enabled = !cond;
         }
 
     }

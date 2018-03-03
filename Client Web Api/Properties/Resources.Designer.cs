@@ -63,9 +63,9 @@ namespace Client_Web_Api.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sele {
+        internal static System.Drawing.Bitmap select {
             get {
-                object obj = ResourceManager.GetObject("sele", resourceCulture);
+                object obj = ResourceManager.GetObject("select", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
