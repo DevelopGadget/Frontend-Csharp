@@ -176,5 +176,17 @@ namespace Client_Web_Api.Controller
             }
 
         }
+        public bool AccesoInternet()
+        {
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry("www.google.com");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

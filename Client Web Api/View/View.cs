@@ -18,22 +18,39 @@ namespace Client_Web_Api
 
         private void View_Load(object sender, EventArgs e)
         {
-            textBox1.Text = "Datos Cargando Por Favor Espere...";
-            ProgressAsync();
-            tboxsNombre.Focus();
+            if (Equipos.AccesoInternet())
+            {
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                ProgressAsync();
+                tboxsNombre.Focus();
+            }
+            else
+            {
+                Internet();
+            }
+
         }
 
         private async void btnCargar_ClickAsync(object sender, EventArgs e)
         {
-            textBox1.Text = "Datos Cargando Por Favor Espere...";
-            btnCargar.Enabled = false;
-            if(Tablas(await Equipos.Read())) Progress();
-            btnCancelar.PerformClick();
+            if (Equipos.AccesoInternet())
+            {
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                btnCargar.Enabled = false;
+                if (Tablas(await Equipos.Read())) Progress();
+                btnCancelar.PerformClick();
+            }
+            else
+            {
+                Internet();
+            }
+
         }
 
         private void TabaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Check();
+            if (Equipos.AccesoInternet()) Check();
+            else Internet();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -44,61 +61,78 @@ namespace Client_Web_Api
             pbEscudo.Image = Properties.Resources.select;
         }
 
-
         private async void btnReg_ClickAsync(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
-                string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
+            if (Equipos.AccesoInternet())
             {
-                MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if(!Equipos.Validar(tboxuEstadio.Text) || !Equipos.Validar(tboxuEscudo.Text))
-            {
-                MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
-                    new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
+                if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
+                                string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
                 {
-                    MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!Equipos.Validar(tboxuEstadio.Text) || !Equipos.Validar(tboxuEscudo.Text))
+                {
+                    MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
+                        new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
+                    {
+                        MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                if (Tablas(await Equipos.Read())) Progress();
             }
-            textBox1.Text = "Datos Cargando Por Favor Espere...";
-            if(Tablas(await Equipos.Read())) Progress();
+            else
+            {
+                Internet();
+            }
+
         }
 
         private async void btnBuscar_ClickAsync(object sender, EventArgs e)
         {
-            textBox1.Text = "Datos Cargando Por Favor Espere...";
-            ControlEn(false);
-            try
+            if (Equipos.AccesoInternet())
             {
-                if (string.IsNullOrEmpty(tboxsBuscar.Text))
+                try
                 {
-                    MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if(Tablas(await Equipos.Read())) Progress();
+                    if (string.IsNullOrEmpty(tboxsBuscar.Text))
+                    {
+                        MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Tablas(await Equipos.Read())) Progress();
+                    }
+                    else if (await Equipos.Read(tboxsBuscar.Text) == null)
+                    {
+                        MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        List<EquiposModel> v = new List<EquiposModel>();
+                        v.Add(await Equipos.Read(tboxsBuscar.Text));
+                        if (Tablas(v)) Progress();
+                    }
                 }
-                else if (await Equipos.Read(tboxsBuscar.Text) == null)
+                catch (Exception)
                 {
                     MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Tablas(await Equipos.Read())) Progress();
                 }
-                else
-                {
-                    List<EquiposModel> v = new List<EquiposModel>();
-                    v.Add(await Equipos.Read(tboxsBuscar.Text));
-                    if(Tablas(v)) Progress();
-                }
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                ControlEn(false);
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(Tablas(await Equipos.Read())) Progress();
+                Internet();
             }
-            
+
+           
+
         }
 
         private void Check()
@@ -125,28 +159,36 @@ namespace Client_Web_Api
         private async void ProgressAsync()
         {
             btnCargar.Enabled = false;
-            try
+            if (!Equipos.AccesoInternet())
             {
-                textBox1.Text = "Datos Cargando Por Favor Espere...";
-                var v = await Equipos.Read();
-                if (v == null)
+                Internet();
+            }
+            else
+            {
+                try
                 {
-                    MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox1.Text = "Verifique Su Conexión A Internet";
-                    btnCargar.Enabled = true;
-                }
-                else
-                {
-                    Tablas(await Equipos.Read());
-                    Progress();
-                }
+                    textBox1.Text = "Datos Cargando Por Favor Espere...";
+                    var v = await Equipos.Read();
+                    if (v == null)
+                    {
+                        MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.Text = "Verifique Su Conexión A Internet";
+                        btnCargar.Enabled = true;
+                    }
+                    else
+                    {
+                        Tablas(await Equipos.Read());
+                        Progress();
+                    }
 
+                }
+                catch (Exception)
+                {
+                    btnCargar.Enabled = true;
+                    MessageBox.Show("Tiempo De Espera Agotado Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception)
-            {
-                btnCargar.Enabled = true;
-                MessageBox.Show("Tiempo De Espera Agotado Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private bool Tablas(List<EquiposModel> v1)
@@ -189,6 +231,7 @@ namespace Client_Web_Api
             btnReg.Enabled = !cond;
             cbSelec.Checked = cond;
         }
+
         private void Progress()
         {
             VistaPro(true);
@@ -203,6 +246,20 @@ namespace Client_Web_Api
             btnCargar.Enabled = true;
             ControlEn(false);
             textBox1.Text = "Datos Cargados";
+            if (!Equipos.AccesoInternet())
+            {
+                Internet();
+            }
+        }
+
+        private void Internet()
+        {
+            ControlEn(false);
+            btnReg.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnCargar.Enabled = true;
+            textBox1.Text = "Verifique Su Conexión A Internet";
+            MessageBox.Show("Verifique Su Conexión A Internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void VistaPro(bool cond)
