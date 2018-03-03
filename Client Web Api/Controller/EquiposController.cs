@@ -3,6 +3,9 @@ using Client_Web_Api.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -102,6 +105,38 @@ namespace Client_Web_Api.Controller
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.Timeout = new TimeSpan(TimeSpan.TicksPerSecond * 10);
+        }
+
+        public bool Validar(string url)
+        {
+            HttpWebRequest wreq;
+            HttpWebResponse wresp;
+            wresp = null;
+
+            try
+            {
+                wreq = (HttpWebRequest)HttpWebRequest.Create(url);
+                wreq.AllowWriteStreamBuffering = true;
+                wresp = (HttpWebResponse)wreq.GetResponse();
+                if (wresp.GetResponseStream() != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                if (wresp != null)
+                    wresp.Close();
+            }
+
         }
     }
 }

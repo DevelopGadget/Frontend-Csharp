@@ -329,6 +329,7 @@
             this.btnReg.Text = "Registrar";
             this.btnReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReg.UseVisualStyleBackColor = true;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
             // pbEscudo
             // 

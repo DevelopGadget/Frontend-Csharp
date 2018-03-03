@@ -45,6 +45,19 @@ namespace Client_Web_Api
             pbEscudo.Image = Properties.Resources.select;
         }
 
+
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
+                string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
+            {
+                MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if(!Equipos.Validar(tboxuEstadio.Text))
+            {
+                MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private async void btnBuscar_ClickAsync(object sender, EventArgs e)
         {
             textBox1.Text = "Datos Cargando Por Favor Espere...";
