@@ -67,6 +67,8 @@ namespace Client_Web_Api
             {
                 ControlEn(false);
                 btnReg.Enabled = false;
+                textBox1.Text = "Registrando Por Favor Espere...";
+                btnBuscar.Enabled = false;
                 if (ValText())
                 {
                     if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
@@ -79,7 +81,6 @@ namespace Client_Web_Api
                         MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                textBox1.Text = "Datos Cargando Por Favor Espere...";
                 if (Tablas(await Equipos.Read())) Progress();
             }
             else
@@ -95,19 +96,20 @@ namespace Client_Web_Api
             {
                 ControlEn(false);
                 btnReg.Enabled = false;
+                textBox1.Text = "Modificando Por Favor Espere...";
+                btnBuscar.Enabled = false;
                 if (ValText())
                 {
                     if (Equipos.Update(tboxsId.Text, new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
                                             new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
                     {
-                        MessageBox.Show("Se Ha Editado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se Ha Modificado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                textBox1.Text = "Datos Cargando Por Favor Espere...";
                 if (Tablas(await Equipos.Read())) Progress();
             }
             else
@@ -158,6 +160,30 @@ namespace Client_Web_Api
 
            
 
+        }
+
+        private async void btnElim_ClickAsync(object sender, EventArgs e)
+        {
+            if (Equipos.AccesoInternet())
+            {
+                ControlEn(false);
+                btnReg.Enabled = false;
+                textBox1.Text = "Eliminando Por Favor Espere...";
+                btnBuscar.Enabled = false;
+                if (Equipos.Delete(tboxsId.Text))
+                {
+                    MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (Tablas(await Equipos.Read())) Progress();
+            }
+            else
+            {
+                Internet();
+            }
         }
 
         private void Check()
@@ -318,5 +344,6 @@ namespace Client_Web_Api
                 return true;
             }
         }
+
     }
 }

@@ -40,9 +40,9 @@ namespace Client_Web_Api.Controller
             return Put(Id, equipos);
         }
 
-        public void Delete(string Id)
+        public bool Delete(string Id)
         {
-
+            return DeleteHttp(Id);
         }
 
         private async Task<bool> Get()
@@ -152,9 +152,28 @@ namespace Client_Web_Api.Controller
             }
         }
 
-        private void DeleteHttp(string Id)
+        private bool DeleteHttp(string Id)
         {
-
+            try
+            {
+                using (client = new HttpClient())
+                {
+                    Client();
+                    resp = client.DeleteAsync("api/Equipos/" + Id).Result;
+                    if (resp.IsSuccessStatusCode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void Client()
@@ -196,6 +215,7 @@ namespace Client_Web_Api.Controller
             }
 
         }
+
         public bool AccesoInternet()
         {
             try

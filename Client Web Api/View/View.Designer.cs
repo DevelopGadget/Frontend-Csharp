@@ -283,6 +283,7 @@
             this.btnElim.Text = "Eliminar";
             this.btnElim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElim.UseVisualStyleBackColor = true;
+            this.btnElim.Click += new System.EventHandler(this.btnElim_ClickAsync);
             // 
             // btnMod
             // 
