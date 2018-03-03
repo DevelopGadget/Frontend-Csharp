@@ -94,20 +94,23 @@ namespace Client_Web_Api
         {
             if (Equipos.AccesoInternet())
             {
-                ControlEn(false);
-                btnReg.Enabled = false;
-                textBox1.Text = "Modificando Por Favor Espere...";
-                btnBuscar.Enabled = false;
                 if (ValText())
                 {
-                    if (Equipos.Update(tboxsId.Text, new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
+                    if(MessageBox.Show("¿Desea Modificar Este Documento?", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        ControlEn(false);
+                        btnReg.Enabled = false;
+                        textBox1.Text = "Modificando Por Favor Espere...";
+                        btnBuscar.Enabled = false;
+                        if (Equipos.Update(tboxsId.Text, new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
                                             new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
-                    {
-                        MessageBox.Show("Se Ha Modificado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        {
+                            MessageBox.Show("Se Ha Modificado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 if (Tablas(await Equipos.Read())) Progress();
@@ -166,17 +169,20 @@ namespace Client_Web_Api
         {
             if (Equipos.AccesoInternet())
             {
-                ControlEn(false);
-                btnReg.Enabled = false;
-                textBox1.Text = "Eliminando Por Favor Espere...";
-                btnBuscar.Enabled = false;
-                if (Equipos.Delete(tboxsId.Text))
+                if (MessageBox.Show("¿Desea Eliminar Este Documento?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ControlEn(false);
+                    btnReg.Enabled = false;
+                    textBox1.Text = "Eliminando Por Favor Espere...";
+                    btnBuscar.Enabled = false;
+                    if (Equipos.Delete(tboxsId.Text))
+                    {
+                        MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 if (Tablas(await Equipos.Read())) Progress();
             }
