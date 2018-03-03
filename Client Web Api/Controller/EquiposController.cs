@@ -35,9 +35,9 @@ namespace Client_Web_Api.Controller
             else return null;
         }
 
-        public void Update(string Id)
+        public bool Update(string Id, EquiposModel equipos)
         {
-
+            return Put(Id, equipos);
         }
 
         public void Delete(string Id)
@@ -127,9 +127,29 @@ namespace Client_Web_Api.Controller
             }
         }
 
-        private void Put(string Id)
+        private bool Put(string Id, EquiposModel Equipo)
         {
-
+            try
+            {
+                using (client = new HttpClient())
+                {
+                    Client();
+                    resp = client.PutAsync("api/Equipos/"+Id, new StringContent(JsonConvert.SerializeObject(Equipo),
+                                           Encoding.UTF8, "application/json")).Result;
+                    if (resp.IsSuccessStatusCode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void DeleteHttp(string Id)
@@ -142,7 +162,7 @@ namespace Client_Web_Api.Controller
             client.BaseAddress = new Uri(BaseAdress);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.Timeout = new TimeSpan(TimeSpan.TicksPerSecond * 10);
+            client.Timeout = new TimeSpan(TimeSpan.TicksPerSecond * 15);
         }
 
         public bool Validar(string url)

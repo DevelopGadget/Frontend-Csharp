@@ -65,19 +65,12 @@ namespace Client_Web_Api
         {
             if (Equipos.AccesoInternet())
             {
-                if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
-                                string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
-                {
-                    MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (!Equipos.Validar(tboxuEstadio.Text) || !Equipos.Validar(tboxuEscudo.Text))
-                {
-                    MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                ControlEn(false);
+                btnReg.Enabled = false;
+                if (ValText())
                 {
                     if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
-                        new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
+                                            new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
                     {
                         MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -96,12 +89,43 @@ namespace Client_Web_Api
 
         }
 
+        private async void btnMod_ClickAsync(object sender, EventArgs e)
+        {
+            if (Equipos.AccesoInternet())
+            {
+                ControlEn(false);
+                btnReg.Enabled = false;
+                if (ValText())
+                {
+                    if (Equipos.Update(tboxsId.Text, new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
+                                            new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
+                    {
+                        MessageBox.Show("Se Ha Editado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                if (Tablas(await Equipos.Read())) Progress();
+            }
+            else
+            {
+                Internet();
+            }
+        }
+
         private async void btnBuscar_ClickAsync(object sender, EventArgs e)
         {
             if (Equipos.AccesoInternet())
             {
                 try
                 {
+                    ControlEn(false);
+                    btnReg.Enabled = false;
+                    textBox1.Text = "Datos Cargando Por Favor Espere...";
+                    btnBuscar.Enabled = false;
                     if (string.IsNullOrEmpty(tboxsBuscar.Text))
                     {
                         MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,8 +147,9 @@ namespace Client_Web_Api
                     MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (Tablas(await Equipos.Read())) Progress();
                 }
-                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                textBox1.Text = "Listo...";
                 ControlEn(false);
+                btnBuscar.Enabled = true;
             }
             else
             {
@@ -246,6 +271,7 @@ namespace Client_Web_Api
             btnCargar.Enabled = true;
             ControlEn(false);
             textBox1.Text = "Datos Cargados";
+            btnCancelar.PerformClick();
             if (!Equipos.AccesoInternet())
             {
                 Internet();
@@ -259,7 +285,7 @@ namespace Client_Web_Api
             btnBuscar.Enabled = false;
             btnCargar.Enabled = true;
             textBox1.Text = "Verifique Su Conexión A Internet";
-            MessageBox.Show("Verifique Su Conexión A Internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Verifique Su Conexión A Internet ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void VistaPro(bool cond)
@@ -274,5 +300,23 @@ namespace Client_Web_Api
             btnBuscar.Enabled = !cond;
         }
 
+        private bool ValText()
+        {
+            if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
+                                string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
+            {
+                MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (!Equipos.Validar(tboxuEstadio.Text) || !Equipos.Validar(tboxuEscudo.Text))
+            {
+                MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
