@@ -37,9 +37,9 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.prbBarra = new System.Windows.Forms.ProgressBar();
             this.tboxsBuscar = new System.Windows.Forms.TextBox();
@@ -212,8 +212,8 @@
             // 
             // sId
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10F);
-            this.sId.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F);
+            this.sId.DefaultCellStyle = dataGridViewCellStyle4;
             this.sId.HeaderText = "Id";
             this.sId.Name = "sId";
             this.sId.ReadOnly = true;
@@ -221,8 +221,8 @@
             // 
             // sNombre
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10F);
-            this.sNombre.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 10F);
+            this.sNombre.DefaultCellStyle = dataGridViewCellStyle5;
             this.sNombre.HeaderText = "Nombre";
             this.sNombre.Name = "sNombre";
             this.sNombre.ReadOnly = true;
@@ -230,8 +230,8 @@
             // 
             // sEstadio
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F);
-            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10F);
+            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle6;
             this.sEstadio.HeaderText = "Estadio";
             this.sEstadio.Name = "sEstadio";
             this.sEstadio.ReadOnly = true;
@@ -329,7 +329,7 @@
             this.btnReg.Text = "Registrar";
             this.btnReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReg.UseVisualStyleBackColor = true;
-            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
+            this.btnReg.Click += new System.EventHandler(this.btnReg_ClickAsync);
             // 
             // pbEscudo
             // 

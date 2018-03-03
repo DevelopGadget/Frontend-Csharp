@@ -3,13 +3,11 @@ using Client_Web_Api.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Client_Web_Api.Controller
 {
@@ -20,9 +18,9 @@ namespace Client_Web_Api.Controller
         private HttpResponseMessage resp { get; set; }
         private HttpClient client { get; set; }
 
-        public void Create(EquiposModel Equipo)
+        public bool Create(EquiposModel Equipo)
         {
-            
+            return Post(Equipo);
         }
 
         public async Task<List<EquiposModel>> Read()
@@ -49,44 +47,84 @@ namespace Client_Web_Api.Controller
 
         private async Task<bool> Get()
         {
-            using (client = new HttpClient())
+            try
             {
-                Client();
-                resp = await client.GetAsync("api/Equipos");
-                if (resp.IsSuccessStatusCode)
+                using (client = new HttpClient())
                 {
-                    var json = await resp.Content.ReadAsStringAsync();
-                    json = json.TrimStart('\"');
-                    json = json.TrimEnd('\"');
-                    json = json.Replace("\\", "");
-                    Equipos = JsonConvert.DeserializeObject<List<EquiposModel>>(json);
-                    return true;
+                    Client();
+                    resp = await client.GetAsync("api/Equipos");
+                    if (resp.IsSuccessStatusCode)
+                    {
+                        var json = await resp.Content.ReadAsStringAsync();
+                        json = json.TrimStart('\"');
+                        json = json.TrimEnd('\"');
+                        json = json.Replace("\\", "");
+                        Equipos = JsonConvert.DeserializeObject<List<EquiposModel>>(json);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+            }
+            catch (Exception)
+            {
                 return false;
             }
         }
 
         private async Task<EquiposModel> Get(string Id)
         {
-            using (client = new HttpClient())
+            try
             {
-                Client();
-                resp = await client.GetAsync("api/Equipos/"+Id);
-                if (resp.IsSuccessStatusCode)
+                using (client = new HttpClient())
                 {
-                    var json = await resp.Content.ReadAsStringAsync();
-                    json = json.TrimStart('\"');
-                    json = json.TrimEnd('\"');
-                    json = json.Replace("\\", "");
-                    return JsonConvert.DeserializeObject<EquiposModel>(json);
+                    Client();
+                    resp = await client.GetAsync("api/Equipos/" + Id);
+                    if (resp.IsSuccessStatusCode)
+                    {
+                        var json = await resp.Content.ReadAsStringAsync();
+                        json = json.TrimStart('\"');
+                        json = json.TrimEnd('\"');
+                        json = json.Replace("\\", "");
+                        return JsonConvert.DeserializeObject<EquiposModel>(json);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
+            }
+            catch (Exception)
+            {
                 return null;
             }
         }
 
-        private void Post()
+        private bool Post(EquiposModel Equipo)
         {
-
+            try
+            {
+                using (client = new HttpClient())
+                {
+                    Client();
+                    resp = client.PostAsync("api/Equipos", new StringContent(JsonConvert.SerializeObject(Equipo),
+                                           Encoding.UTF8, "application/json")).Result;
+                    if (resp.IsSuccessStatusCode)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void Put(string Id)

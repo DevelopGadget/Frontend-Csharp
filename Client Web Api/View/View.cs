@@ -27,8 +27,7 @@ namespace Client_Web_Api
         {
             textBox1.Text = "Datos Cargando Por Favor Espere...";
             btnCargar.Enabled = false;
-            Tablas(await Equipos.Read());
-            Progress();
+            if(Tablas(await Equipos.Read())) Progress();
             btnCancelar.PerformClick();
         }
 
@@ -46,16 +45,30 @@ namespace Client_Web_Api
         }
 
 
-        private void btnReg_Click(object sender, EventArgs e)
+        private async void btnReg_ClickAsync(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
                 string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
             {
                 MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if(!Equipos.Validar(tboxuEstadio.Text))
+            } else if(!Equipos.Validar(tboxuEstadio.Text) || !Equipos.Validar(tboxuEscudo.Text))
             {
                 MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
+                    new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
+                {
+                    MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            textBox1.Text = "Datos Cargando Por Favor Espere...";
+            if(Tablas(await Equipos.Read())) Progress();
         }
 
         private async void btnBuscar_ClickAsync(object sender, EventArgs e)
@@ -67,8 +80,7 @@ namespace Client_Web_Api
                 if (string.IsNullOrEmpty(tboxsBuscar.Text))
                 {
                     MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Tablas(await Equipos.Read());
-                    Progress();
+                    if(Tablas(await Equipos.Read())) Progress();
                 }
                 else if (await Equipos.Read(tboxsBuscar.Text) == null)
                 {
@@ -78,15 +90,13 @@ namespace Client_Web_Api
                 {
                     List<EquiposModel> v = new List<EquiposModel>();
                     v.Add(await Equipos.Read(tboxsBuscar.Text));
-                    Progress();
-                    Tablas(v);
+                    if(Tablas(v)) Progress();
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Tablas(await Equipos.Read());
-                Progress();
+                if(Tablas(await Equipos.Read())) Progress();
             }
             
         }
@@ -122,6 +132,8 @@ namespace Client_Web_Api
                 if (v == null)
                 {
                     MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.Text = "Verifique Su Conexión A Internet";
+                    btnCargar.Enabled = true;
                 }
                 else
                 {
@@ -137,7 +149,7 @@ namespace Client_Web_Api
             }
         }
 
-        private void Tablas(List<EquiposModel> v1)
+        private bool Tablas(List<EquiposModel> v1)
         {
             try
             {
@@ -149,10 +161,14 @@ namespace Client_Web_Api
                 {
                     TabaDatos.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sEstadio });
                 }
+                return true;
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Text = "Verifique Su Conexión A Internet";
+                btnCargar.Enabled = true;
+                return false;
             }
         }
 
