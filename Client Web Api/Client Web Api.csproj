@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Controller\EquiposController.cs" />
     <Compile Include="Model\EquiposModel.cs" />
+    <Compile Include="Model\JugadoresModel.cs" />
     <Compile Include="View\View.cs">
       <SubType>Form</SubType>
     </Compile>

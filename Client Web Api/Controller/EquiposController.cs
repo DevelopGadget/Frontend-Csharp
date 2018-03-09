@@ -14,7 +14,7 @@ namespace Client_Web_Api.Controller
     class EquiposController
     {
         public List<EquiposModel> Equipos { get; set; }
-        private string BaseAdress = "https://out-jskdocjpwr.now.sh/";
+        private string BaseAdress = "http://web-api-net.a3c1.starter-us-west-1.openshiftapps.com/";
         private HttpResponseMessage resp { get; set; }
         private HttpClient client { get; set; }
 
