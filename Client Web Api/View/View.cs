@@ -49,14 +49,14 @@ namespace Client_Web_Api
 
         private void TabaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Equipos.AccesoInternet()) Check();
+            if (Equipos.AccesoInternet()) CheckEquipo();
             else Internet();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            BorrarText();
-            ControlEn(false);
+            BorrarText(tboxsId, tboxsNombre, tboxsEstadio, tboxuEscudo, tboxuEstadio, tboxsBuscar);
+            ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
             pbEstadio.Image = Properties.Resources.select;
             pbEscudo.Image = Properties.Resources.select;
         }
@@ -65,11 +65,11 @@ namespace Client_Web_Api
         {
             if (Equipos.AccesoInternet())
             {
-                ControlEn(false);
+                ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
                 btnReg.Enabled = false;
                 textBox1.Text = "Registrando Por Favor Espere...";
                 btnBuscar.Enabled = false;
-                if (ValText())
+                if (ValTextEquipos())
                 {
                     if (Equipos.Create(new EquiposModel(tboxsNombre.Text.ToUpper(), tboxsEstadio.Text.ToUpper(),
                                             new Uri(tboxuEstadio.Text), new Uri(tboxuEscudo.Text))))
@@ -94,11 +94,11 @@ namespace Client_Web_Api
         {
             if (Equipos.AccesoInternet())
             {
-                if (ValText())
+                if (ValTextEquipos())
                 {
                     if(MessageBox.Show("¿Desea Modificar Este Documento?", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        ControlEn(false);
+                        ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
                         btnReg.Enabled = false;
                         textBox1.Text = "Modificando Por Favor Espere...";
                         btnBuscar.Enabled = false;
@@ -127,7 +127,7 @@ namespace Client_Web_Api
             {
                 try
                 {
-                    ControlEn(false);
+                    ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
                     btnReg.Enabled = false;
                     textBox1.Text = "Datos Cargando Por Favor Espere...";
                     btnBuscar.Enabled = false;
@@ -153,7 +153,7 @@ namespace Client_Web_Api
                     if (Tablas(await Equipos.Read())) Progress();
                 }
                 textBox1.Text = "Listo...";
-                ControlEn(false);
+                ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
                 btnBuscar.Enabled = true;
             }
             else
@@ -171,7 +171,7 @@ namespace Client_Web_Api
             {
                 if (MessageBox.Show("¿Desea Eliminar Este Documento?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    ControlEn(false);
+                    ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
                     btnReg.Enabled = false;
                     textBox1.Text = "Eliminando Por Favor Espere...";
                     btnBuscar.Enabled = false;
@@ -192,7 +192,7 @@ namespace Client_Web_Api
             }
         }
 
-        private void Check()
+        private void CheckEquipo()
         {
             for (int i = 0; i < Equipos.Equipos.Count; i++)
             {
@@ -206,7 +206,7 @@ namespace Client_Web_Api
                     tboxsEstadio.Text = Equipos.Equipos[i].sEstadio;
                     tboxuEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
                     tboxuEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
-                    ControlEn(true);
+                    ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
                     MessageBox.Show("Id Copiado Al Portapapeles", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 }
@@ -271,28 +271,54 @@ namespace Client_Web_Api
             }
         }
 
-        private void BorrarText()
+        private bool Tablas(List<JugadoresModel> v1)
         {
-            tboxsId.Text = null;
-            tboxsNombre.Text = null;
-            tboxsEstadio.Text = null;
-            tboxuEstadio.Text = null;
-            tboxuEscudo.Text = null;
-            tboxsBuscar.Text = null;
+            try
+            {
+                while (tableJug.Rows.Count != 0)
+                {
+                    tableJug.Rows.RemoveAt(0);
+                }
+                foreach (JugadoresModel Ob in v1)
+                {
+                    tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad+"" });
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Se ha Producido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Text = "Verifique Su Conexión A Internet";
+                btnCargar.Enabled = true;
+                return false;
+            }
         }
 
-        private void ControlEn(bool cond)
+        private void BorrarText(TextBox Id, TextBox sNombre, TextBox Url, TextBox Url1, TextBox Buscar, TextBox Url3)
+        {
+            Id.Text = null;
+            sNombre.Text = null;
+            Url.Text = null;
+            Url1.Text = null;
+            Buscar.Text = null;
+            Url3.Text = null;
+            tboxBuscarJug.Text = null;
+        }
+
+        private void ControlEn( Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, bool cond)
         {
             btnMod.Enabled = cond;
             btnElim.Enabled = cond;
             btnReg.Enabled = !cond;
             cbSelec.Checked = cond;
+            comboClub.SelectedItem = 0;
         }
 
         private void Progress()
         {
             VistaPro(true);
-            BorrarText();
+            BorrarText(tboxsId, tboxsNombre, tboxsEstadio, tboxuEscudo, tboxuEstadio, tboxsBuscar);
+            BorrarText(tboxIdJug, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
             prbBarra.Value = 0;
             for (int i = 0; i < 100; i++)
             {
@@ -301,7 +327,8 @@ namespace Client_Web_Api
             }
             VistaPro(false);
             btnCargar.Enabled = true;
-            ControlEn(false);
+            ControlEn(btnReg,btnMod,btnElim,cbSelec ,false);
+            ControlEn(btnRegJug,btnModJug,btnElimJug,cbSelecJug ,false);
             textBox1.Text = "Datos Cargados";
             btnCancelar.PerformClick();
             if (!Equipos.AccesoInternet())
@@ -312,12 +339,19 @@ namespace Client_Web_Api
 
         private void Internet()
         {
-            ControlEn(false);
-            btnReg.Enabled = false;
-            btnBuscar.Enabled = false;
+            ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
+            ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
+            NoInt(btnReg, btnBuscar, false);
+            NoInt(btnRegJug, btnBuscarJug, false);
             btnCargar.Enabled = true;
             textBox1.Text = "Verifique Su Conexión A Internet";
             MessageBox.Show("Verifique Su Conexión A Internet ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void NoInt(Button btnReg, Button btnBuscar,  bool cond)
+        {
+            btnReg.Enabled = cond;
+            btnBuscar.Enabled = cond;
         }
 
         private void VistaPro(bool cond)
@@ -327,12 +361,13 @@ namespace Client_Web_Api
             textBox1.Enabled = false;
             btnCargar.Enabled = !cond;
             prbBarra.Visible = cond;
-            ControlEn(!cond);
-            btnReg.Enabled = !cond;
-            btnBuscar.Enabled = !cond;
+            ControlEn(btnReg, btnMod, btnElim, cbSelec, !cond);
+            ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, !cond);
+            NoInt(btnReg, btnBuscar, !cond);
+            NoInt(btnRegJug, btnBuscarJug, !cond);
         }
 
-        private bool ValText()
+        private bool ValTextEquipos()
         {
             if (string.IsNullOrEmpty(tboxsNombre.Text) || string.IsNullOrEmpty(tboxsEstadio.Text) ||
                                 string.IsNullOrEmpty(tboxuEscudo.Text) || string.IsNullOrEmpty(tboxuEstadio.Text))
@@ -350,10 +385,25 @@ namespace Client_Web_Api
                 return true;
             }
         }
-
-        private void btn(object sender, MouseEventArgs e)
+        
+        private bool ValTextJugadores()
         {
-
+            if (string.IsNullOrEmpty(tboxsNombreJug.Text) || string.IsNullOrEmpty(tboxuNacionalidadJug.Text) ||
+                string.IsNullOrEmpty(tboxsPosicionJug.Text) || string.IsNullOrEmpty(tboxsNacionalidadJug.Text) ||
+                string.IsNullOrEmpty(tboxiEdadJug.Text) || Int32.Parse(comboClub.SelectedItem+"") == 0)
+            {
+                MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (!Equipos.Validar(tboxuNacionalidadJug.Text))
+            {
+                MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

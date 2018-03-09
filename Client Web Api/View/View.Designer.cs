@@ -36,13 +36,7 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label7;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
@@ -50,6 +44,13 @@
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label15;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -75,9 +76,8 @@
             this.tboxsEstadio = new System.Windows.Forms.TextBox();
             this.tboxsNombre = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.Label();
-            this.btnCargar = new System.Windows.Forms.Button();
-            this.prbBarra = new System.Windows.Forms.ProgressBar();
+            this.comboClub = new System.Windows.Forms.ComboBox();
+            this.tboxiEdadJug = new System.Windows.Forms.TextBox();
             this.btnCancelarJug = new System.Windows.Forms.Button();
             this.btnElimJug = new System.Windows.Forms.Button();
             this.btnModJug = new System.Windows.Forms.Button();
@@ -87,17 +87,19 @@
             this.cbSelecJug = new System.Windows.Forms.CheckBox();
             this.btnRegJug = new System.Windows.Forms.Button();
             this.tableJug = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbNacionalidadJug = new System.Windows.Forms.PictureBox();
             this.pbClubJug = new System.Windows.Forms.PictureBox();
             this.tboxuNacionalidadJug = new System.Windows.Forms.TextBox();
             this.tboxsNacionalidadJug = new System.Windows.Forms.TextBox();
             this.tboxsPosicionJug = new System.Windows.Forms.TextBox();
             this.tboxsNombreJug = new System.Windows.Forms.TextBox();
-            this.tboxiEdadJug = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.Label();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.prbBarra = new System.Windows.Forms.ProgressBar();
             label25 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -113,6 +115,7 @@
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
             this.Pestañas.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TabaDatos)).BeginInit();
@@ -193,6 +196,96 @@
             label1.Size = new System.Drawing.Size(68, 18);
             label1.TabIndex = 78;
             label1.Text = "Nombre:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 12F);
+            label7.Location = new System.Drawing.Point(39, 21);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(121, 18);
+            label7.TabIndex = 116;
+            label7.Text = "Id seleccionado:";
+            // 
+            // label8
+            // 
+            label8.Font = new System.Drawing.Font("Arial", 12F);
+            label8.Location = new System.Drawing.Point(624, 205);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(165, 43);
+            label8.TabIndex = 112;
+            label8.Text = "Foto del escudo de su nacionalidad";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            label9.Font = new System.Drawing.Font("Arial", 12F);
+            label9.Location = new System.Drawing.Point(413, 205);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(142, 39);
+            label9.TabIndex = 111;
+            label9.Text = "Foto del club donde juega";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            label10.Font = new System.Drawing.Font("Arial", 12F);
+            label10.Location = new System.Drawing.Point(197, 97);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(171, 45);
+            label10.TabIndex = 108;
+            label10.Text = "Url del escudo de su nacionalidad:";
+            label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            label11.Font = new System.Drawing.Font("Arial", 12F);
+            label11.Location = new System.Drawing.Point(398, 98);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(117, 45);
+            label11.TabIndex = 106;
+            label11.Text = "Nombre de su nacionalidad:";
+            label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Arial", 12F);
+            label12.Location = new System.Drawing.Point(371, 22);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(166, 18);
+            label12.TabIndex = 103;
+            label12.Text = "Posición en que juega:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 12F);
+            label13.Location = new System.Drawing.Point(246, 21);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(68, 18);
+            label13.TabIndex = 100;
+            label13.Text = "Nombre:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Arial", 12F);
+            label14.Location = new System.Drawing.Point(589, 21);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(50, 18);
+            label14.TabIndex = 123;
+            label14.Text = "Edad:";
+            // 
+            // label15
+            // 
+            label15.Font = new System.Drawing.Font("Arial", 12F);
+            label15.Location = new System.Drawing.Point(583, 110);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(66, 34);
+            label15.TabIndex = 125;
+            label15.Text = "Club:";
+            label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imageList1
             // 
@@ -360,7 +453,6 @@
             this.btnReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_ClickAsync);
-            this.btnReg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn);
             // 
             // TabaDatos
             // 
@@ -476,6 +568,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(label15);
+            this.tabPage2.Controls.Add(this.comboClub);
             this.tabPage2.Controls.Add(this.tboxiEdadJug);
             this.tabPage2.Controls.Add(label14);
             this.tabPage2.Controls.Add(this.btnCancelarJug);
@@ -509,41 +603,21 @@
             this.tabPage2.Text = "Jugadores";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // comboClub
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(199, 465);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 23);
-            this.textBox1.TabIndex = 103;
-            this.textBox1.Text = "Cargando Datos Por Favor Espere...";
-            this.textBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboClub.FormattingEnabled = true;
+            this.comboClub.Location = new System.Drawing.Point(554, 147);
+            this.comboClub.Name = "comboClub";
+            this.comboClub.Size = new System.Drawing.Size(121, 21);
+            this.comboClub.TabIndex = 124;
             // 
-            // btnCargar
+            // tboxiEdadJug
             // 
-            this.btnCargar.Enabled = false;
-            this.btnCargar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargar.ImageIndex = 6;
-            this.btnCargar.ImageList = this.imageList1;
-            this.btnCargar.Location = new System.Drawing.Point(648, 459);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(153, 35);
-            this.btnCargar.TabIndex = 102;
-            this.btnCargar.Text = "Cargar Datos";
-            this.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_ClickAsync);
-            // 
-            // prbBarra
-            // 
-            this.prbBarra.Location = new System.Drawing.Point(33, 464);
-            this.prbBarra.Name = "prbBarra";
-            this.prbBarra.Size = new System.Drawing.Size(591, 25);
-            this.prbBarra.Step = 3;
-            this.prbBarra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.prbBarra.TabIndex = 101;
+            this.tboxiEdadJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxiEdadJug.Location = new System.Drawing.Point(569, 52);
+            this.tboxiEdadJug.Name = "tboxiEdadJug";
+            this.tboxiEdadJug.Size = new System.Drawing.Size(80, 23);
+            this.tboxiEdadJug.TabIndex = 122;
             // 
             // btnCancelarJug
             // 
@@ -612,16 +686,6 @@
             this.btnBuscarJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarJug.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 12F);
-            label7.Location = new System.Drawing.Point(39, 21);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(121, 18);
-            label7.TabIndex = 116;
-            label7.Text = "Id seleccionado:";
-            // 
             // tboxIdJug
             // 
             this.tboxIdJug.Enabled = false;
@@ -686,138 +750,6 @@
             this.tableJug.Size = new System.Drawing.Size(362, 150);
             this.tableJug.TabIndex = 113;
             // 
-            // label8
-            // 
-            label8.Font = new System.Drawing.Font("Arial", 12F);
-            label8.Location = new System.Drawing.Point(624, 205);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(165, 43);
-            label8.TabIndex = 112;
-            label8.Text = "Foto del escudo de su nacionalidad";
-            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            label9.Font = new System.Drawing.Font("Arial", 12F);
-            label9.Location = new System.Drawing.Point(413, 205);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(142, 39);
-            label9.TabIndex = 111;
-            label9.Text = "Foto del club donde juega";
-            label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbNacionalidadJug
-            // 
-            this.pbNacionalidadJug.Image = ((System.Drawing.Image)(resources.GetObject("pbNacionalidadJug.Image")));
-            this.pbNacionalidadJug.InitialImage = null;
-            this.pbNacionalidadJug.Location = new System.Drawing.Point(609, 251);
-            this.pbNacionalidadJug.Name = "pbNacionalidadJug";
-            this.pbNacionalidadJug.Size = new System.Drawing.Size(191, 149);
-            this.pbNacionalidadJug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNacionalidadJug.TabIndex = 110;
-            this.pbNacionalidadJug.TabStop = false;
-            // 
-            // pbClubJug
-            // 
-            this.pbClubJug.Image = ((System.Drawing.Image)(resources.GetObject("pbClubJug.Image")));
-            this.pbClubJug.InitialImage = null;
-            this.pbClubJug.Location = new System.Drawing.Point(391, 251);
-            this.pbClubJug.Name = "pbClubJug";
-            this.pbClubJug.Size = new System.Drawing.Size(191, 149);
-            this.pbClubJug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbClubJug.TabIndex = 109;
-            this.pbClubJug.TabStop = false;
-            // 
-            // tboxuNacionalidadJug
-            // 
-            this.tboxuNacionalidadJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxuNacionalidadJug.Location = new System.Drawing.Point(211, 145);
-            this.tboxuNacionalidadJug.Name = "tboxuNacionalidadJug";
-            this.tboxuNacionalidadJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxuNacionalidadJug.TabIndex = 104;
-            // 
-            // label10
-            // 
-            label10.Font = new System.Drawing.Font("Arial", 12F);
-            label10.Location = new System.Drawing.Point(197, 97);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(171, 45);
-            label10.TabIndex = 108;
-            label10.Text = "Url del escudo de su nacionalidad:";
-            label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tboxsNacionalidadJug
-            // 
-            this.tboxsNacionalidadJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsNacionalidadJug.Location = new System.Drawing.Point(416, 145);
-            this.tboxsNacionalidadJug.Name = "tboxsNacionalidadJug";
-            this.tboxsNacionalidadJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsNacionalidadJug.TabIndex = 105;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Arial", 12F);
-            label11.Location = new System.Drawing.Point(388, 110);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(203, 18);
-            label11.TabIndex = 106;
-            label11.Text = "Nombre de su nacionalidad:";
-            // 
-            // tboxsPosicionJug
-            // 
-            this.tboxsPosicionJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsPosicionJug.Location = new System.Drawing.Point(416, 54);
-            this.tboxsPosicionJug.Name = "tboxsPosicionJug";
-            this.tboxsPosicionJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsPosicionJug.TabIndex = 102;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Arial", 12F);
-            label12.Location = new System.Drawing.Point(405, 21);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(166, 18);
-            label12.TabIndex = 103;
-            label12.Text = "Posición en que juega:";
-            // 
-            // tboxsNombreJug
-            // 
-            this.tboxsNombreJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsNombreJug.Location = new System.Drawing.Point(211, 54);
-            this.tboxsNombreJug.Name = "tboxsNombreJug";
-            this.tboxsNombreJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsNombreJug.TabIndex = 101;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Arial", 12F);
-            label13.Location = new System.Drawing.Point(246, 21);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(68, 18);
-            label13.TabIndex = 100;
-            label13.Text = "Nombre:";
-            // 
-            // tboxiEdadJug
-            // 
-            this.tboxiEdadJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxiEdadJug.Location = new System.Drawing.Point(586, 52);
-            this.tboxiEdadJug.Name = "tboxiEdadJug";
-            this.tboxiEdadJug.Size = new System.Drawing.Size(80, 23);
-            this.tboxiEdadJug.TabIndex = 122;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new System.Drawing.Font("Arial", 12F);
-            label14.Location = new System.Drawing.Point(606, 21);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(50, 18);
-            label14.TabIndex = 123;
-            label14.Text = "Edad:";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10F);
@@ -859,6 +791,96 @@
             this.Edad.ReadOnly = true;
             this.Edad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Edad.Width = 60;
+            // 
+            // pbNacionalidadJug
+            // 
+            this.pbNacionalidadJug.Image = ((System.Drawing.Image)(resources.GetObject("pbNacionalidadJug.Image")));
+            this.pbNacionalidadJug.InitialImage = null;
+            this.pbNacionalidadJug.Location = new System.Drawing.Point(609, 251);
+            this.pbNacionalidadJug.Name = "pbNacionalidadJug";
+            this.pbNacionalidadJug.Size = new System.Drawing.Size(191, 149);
+            this.pbNacionalidadJug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNacionalidadJug.TabIndex = 110;
+            this.pbNacionalidadJug.TabStop = false;
+            // 
+            // pbClubJug
+            // 
+            this.pbClubJug.Image = ((System.Drawing.Image)(resources.GetObject("pbClubJug.Image")));
+            this.pbClubJug.InitialImage = null;
+            this.pbClubJug.Location = new System.Drawing.Point(391, 251);
+            this.pbClubJug.Name = "pbClubJug";
+            this.pbClubJug.Size = new System.Drawing.Size(191, 149);
+            this.pbClubJug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbClubJug.TabIndex = 109;
+            this.pbClubJug.TabStop = false;
+            // 
+            // tboxuNacionalidadJug
+            // 
+            this.tboxuNacionalidadJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxuNacionalidadJug.Location = new System.Drawing.Point(211, 145);
+            this.tboxuNacionalidadJug.Name = "tboxuNacionalidadJug";
+            this.tboxuNacionalidadJug.Size = new System.Drawing.Size(145, 23);
+            this.tboxuNacionalidadJug.TabIndex = 104;
+            // 
+            // tboxsNacionalidadJug
+            // 
+            this.tboxsNacionalidadJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxsNacionalidadJug.Location = new System.Drawing.Point(382, 146);
+            this.tboxsNacionalidadJug.Name = "tboxsNacionalidadJug";
+            this.tboxsNacionalidadJug.Size = new System.Drawing.Size(145, 23);
+            this.tboxsNacionalidadJug.TabIndex = 105;
+            // 
+            // tboxsPosicionJug
+            // 
+            this.tboxsPosicionJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxsPosicionJug.Location = new System.Drawing.Point(382, 55);
+            this.tboxsPosicionJug.Name = "tboxsPosicionJug";
+            this.tboxsPosicionJug.Size = new System.Drawing.Size(145, 23);
+            this.tboxsPosicionJug.TabIndex = 102;
+            // 
+            // tboxsNombreJug
+            // 
+            this.tboxsNombreJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxsNombreJug.Location = new System.Drawing.Point(211, 54);
+            this.tboxsNombreJug.Name = "tboxsNombreJug";
+            this.tboxsNombreJug.Size = new System.Drawing.Size(145, 23);
+            this.tboxsNombreJug.TabIndex = 101;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(199, 465);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(289, 23);
+            this.textBox1.TabIndex = 103;
+            this.textBox1.Text = "Cargando Datos Por Favor Espere...";
+            this.textBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Enabled = false;
+            this.btnCargar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargar.ImageIndex = 6;
+            this.btnCargar.ImageList = this.imageList1;
+            this.btnCargar.Location = new System.Drawing.Point(648, 459);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(153, 35);
+            this.btnCargar.TabIndex = 102;
+            this.btnCargar.Text = "Cargar Datos";
+            this.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_ClickAsync);
+            // 
+            // prbBarra
+            // 
+            this.prbBarra.Location = new System.Drawing.Point(33, 464);
+            this.prbBarra.Name = "prbBarra";
+            this.prbBarra.Size = new System.Drawing.Size(591, 25);
+            this.prbBarra.Step = 3;
+            this.prbBarra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.prbBarra.TabIndex = 101;
             // 
             // View
             // 
@@ -938,6 +960,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
+        private System.Windows.Forms.ComboBox comboClub;
     }
 }
 
