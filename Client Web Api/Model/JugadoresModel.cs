@@ -12,10 +12,10 @@ namespace Client_Web_Api.Model
         public string sNombre { get; set; }
         public int sEdad { get; set; }
         public string sPosicion { get; set; }
-        public string sEquipo { get; set; }
+        public EquiposModel sEquipo { get; set; }
         public string sNacionalidad { get; set; }
         public string uNacionalidad { get; set; }
-        public JugadoresModel(string sNombre, int sEdad, string sPosicion, string sEquipo, string sNacionalidad, string uNacionalidad)
+        public JugadoresModel(string sNombre, int sEdad, string sPosicion, EquiposModel sEquipo, string sNacionalidad, string uNacionalidad)
         {
             this.sNombre = sNombre;
             this.sEdad = sEdad;

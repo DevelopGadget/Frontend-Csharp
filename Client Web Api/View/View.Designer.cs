@@ -29,22 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             System.Windows.Forms.Label label25;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Pestañas = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnElim = new System.Windows.Forms.Button();
@@ -66,6 +65,7 @@
             this.tboxsNombre = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
             this.prbBarra = new System.Windows.Forms.ProgressBar();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             label25 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -79,6 +79,76 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEscudo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstadio)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Arial", 12F);
+            label25.Location = new System.Drawing.Point(41, 21);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(121, 18);
+            label25.TabIndex = 94;
+            label25.Text = "Id seleccionado:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial", 12F);
+            label6.Location = new System.Drawing.Point(645, 218);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(120, 18);
+            label6.TabIndex = 90;
+            label6.Text = "Foto del escudo";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 12F);
+            label5.Location = new System.Drawing.Point(381, 218);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(217, 18);
+            label5.TabIndex = 89;
+            label5.Text = "Foto del estadio donde reside";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 12F);
+            label4.Location = new System.Drawing.Point(201, 111);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(171, 18);
+            label4.TabIndex = 86;
+            label4.Text = "Url con foto del estadio:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 12F);
+            label3.Location = new System.Drawing.Point(407, 111);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(170, 18);
+            label3.TabIndex = 84;
+            label3.Text = "Url con foto del escudo:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 12F);
+            label2.Location = new System.Drawing.Point(369, 21);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(245, 18);
+            label2.TabIndex = 81;
+            label2.Text = "Nombre del estadio donde reside:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 12F);
+            label1.Location = new System.Drawing.Point(248, 21);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(68, 18);
+            label1.TabIndex = 78;
+            label1.Text = "Nombre:";
             // 
             // imageList1
             // 
@@ -142,22 +212,11 @@
             this.tabPage1.Text = "Equipos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.ImageIndex = 8;
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(819, 465);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Jugadores";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(184, 434);
+            this.textBox1.Location = new System.Drawing.Point(189, 426);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(289, 23);
             this.textBox1.TabIndex = 100;
@@ -170,13 +229,14 @@
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.ImageIndex = 4;
             this.btnCancelar.ImageList = this.imageList1;
-            this.btnCancelar.Location = new System.Drawing.Point(19, 131);
+            this.btnCancelar.Location = new System.Drawing.Point(24, 123);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 45);
             this.btnCancelar.TabIndex = 99;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnElim
             // 
@@ -185,13 +245,14 @@
             this.btnElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnElim.ImageIndex = 1;
             this.btnElim.ImageList = this.imageList1;
-            this.btnElim.Location = new System.Drawing.Point(633, 40);
+            this.btnElim.Location = new System.Drawing.Point(638, 32);
             this.btnElim.Name = "btnElim";
             this.btnElim.Size = new System.Drawing.Size(117, 45);
             this.btnElim.TabIndex = 98;
             this.btnElim.Text = "Eliminar";
             this.btnElim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElim.UseVisualStyleBackColor = true;
+            this.btnElim.Click += new System.EventHandler(this.btnElim_ClickAsync);
             // 
             // btnMod
             // 
@@ -200,18 +261,19 @@
             this.btnMod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMod.ImageIndex = 3;
             this.btnMod.ImageList = this.imageList1;
-            this.btnMod.Location = new System.Drawing.Point(633, 92);
+            this.btnMod.Location = new System.Drawing.Point(638, 84);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(117, 45);
             this.btnMod.TabIndex = 97;
             this.btnMod.Text = "Modificar";
             this.btnMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_ClickAsync);
             // 
             // tboxsBuscar
             // 
             this.tboxsBuscar.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsBuscar.Location = new System.Drawing.Point(142, 200);
+            this.tboxsBuscar.Location = new System.Drawing.Point(147, 192);
             this.tboxsBuscar.Name = "tboxsBuscar";
             this.tboxsBuscar.Size = new System.Drawing.Size(145, 23);
             this.tboxsBuscar.TabIndex = 95;
@@ -223,29 +285,20 @@
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.ImageIndex = 2;
             this.btnBuscar.ImageList = this.imageList1;
-            this.btnBuscar.Location = new System.Drawing.Point(19, 188);
+            this.btnBuscar.Location = new System.Drawing.Point(24, 180);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(117, 45);
             this.btnBuscar.TabIndex = 96;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new System.Drawing.Font("Arial", 12F);
-            label25.Location = new System.Drawing.Point(36, 29);
-            label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(121, 18);
-            label25.TabIndex = 94;
-            label25.Text = "Id seleccionado:";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_ClickAsync);
             // 
             // tboxsId
             // 
             this.tboxsId.Enabled = false;
             this.tboxsId.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsId.Location = new System.Drawing.Point(25, 63);
+            this.tboxsId.Location = new System.Drawing.Point(30, 55);
             this.tboxsId.Name = "tboxsId";
             this.tboxsId.Size = new System.Drawing.Size(145, 23);
             this.tboxsId.TabIndex = 93;
@@ -255,7 +308,7 @@
             this.cbSelec.AutoSize = true;
             this.cbSelec.Enabled = false;
             this.cbSelec.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbSelec.Location = new System.Drawing.Point(154, 230);
+            this.cbSelec.Location = new System.Drawing.Point(159, 222);
             this.cbSelec.Name = "cbSelec";
             this.cbSelec.Size = new System.Drawing.Size(123, 22);
             this.cbSelec.TabIndex = 92;
@@ -269,33 +322,35 @@
             this.btnReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReg.ImageIndex = 0;
             this.btnReg.ImageList = this.imageList1;
-            this.btnReg.Location = new System.Drawing.Point(633, 143);
+            this.btnReg.Location = new System.Drawing.Point(638, 135);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(117, 45);
             this.btnReg.TabIndex = 85;
             this.btnReg.Text = "Registrar";
             this.btnReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReg.UseVisualStyleBackColor = true;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_ClickAsync);
+            this.btnReg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn);
             // 
             // TabaDatos
             // 
             this.TabaDatos.AllowUserToAddRows = false;
             this.TabaDatos.AllowUserToDeleteRows = false;
             this.TabaDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabaDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabaDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.TabaDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TabaDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sId,
             this.sNombre,
             this.sEstadio});
-            this.TabaDatos.Location = new System.Drawing.Point(15, 258);
+            this.TabaDatos.Location = new System.Drawing.Point(20, 250);
             this.TabaDatos.MultiSelect = false;
             this.TabaDatos.Name = "TabaDatos";
             this.TabaDatos.ReadOnly = true;
@@ -303,11 +358,12 @@
             this.TabaDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TabaDatos.Size = new System.Drawing.Size(362, 150);
             this.TabaDatos.TabIndex = 91;
+            this.TabaDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TabaDatos_CellContentClick);
             // 
             // sId
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10F);
-            this.sId.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 10F);
+            this.sId.DefaultCellStyle = dataGridViewCellStyle10;
             this.sId.HeaderText = "Id";
             this.sId.Name = "sId";
             this.sId.ReadOnly = true;
@@ -316,8 +372,8 @@
             // 
             // sNombre
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F);
-            this.sNombre.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 10F);
+            this.sNombre.DefaultCellStyle = dataGridViewCellStyle11;
             this.sNombre.HeaderText = "Nombre";
             this.sNombre.Name = "sNombre";
             this.sNombre.ReadOnly = true;
@@ -326,39 +382,19 @@
             // 
             // sEstadio
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F);
-            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 10F);
+            this.sEstadio.DefaultCellStyle = dataGridViewCellStyle12;
             this.sEstadio.HeaderText = "Estadio";
             this.sEstadio.Name = "sEstadio";
             this.sEstadio.ReadOnly = true;
             this.sEstadio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.sEstadio.Width = 140;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial", 12F);
-            label6.Location = new System.Drawing.Point(640, 226);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(120, 18);
-            label6.TabIndex = 90;
-            label6.Text = "Foto del escudo";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial", 12F);
-            label5.Location = new System.Drawing.Point(376, 226);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(217, 18);
-            label5.TabIndex = 89;
-            label5.Text = "Foto del estadio donde reside";
-            // 
             // pbEscudo
             // 
             this.pbEscudo.Image = ((System.Drawing.Image)(resources.GetObject("pbEscudo.Image")));
             this.pbEscudo.InitialImage = null;
-            this.pbEscudo.Location = new System.Drawing.Point(606, 259);
+            this.pbEscudo.Location = new System.Drawing.Point(611, 251);
             this.pbEscudo.Name = "pbEscudo";
             this.pbEscudo.Size = new System.Drawing.Size(191, 149);
             this.pbEscudo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -369,7 +405,7 @@
             // 
             this.pbEstadio.Image = ((System.Drawing.Image)(resources.GetObject("pbEstadio.Image")));
             this.pbEstadio.InitialImage = null;
-            this.pbEstadio.Location = new System.Drawing.Point(388, 259);
+            this.pbEstadio.Location = new System.Drawing.Point(393, 251);
             this.pbEstadio.Name = "pbEstadio";
             this.pbEstadio.Size = new System.Drawing.Size(191, 149);
             this.pbEstadio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -379,74 +415,34 @@
             // tboxuEstadio
             // 
             this.tboxuEstadio.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxuEstadio.Location = new System.Drawing.Point(208, 153);
+            this.tboxuEstadio.Location = new System.Drawing.Point(213, 145);
             this.tboxuEstadio.Name = "tboxuEstadio";
             this.tboxuEstadio.Size = new System.Drawing.Size(145, 23);
             this.tboxuEstadio.TabIndex = 82;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 12F);
-            label4.Location = new System.Drawing.Point(196, 119);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(171, 18);
-            label4.TabIndex = 86;
-            label4.Text = "Url con foto del estadio:";
-            // 
             // tboxuEscudo
             // 
             this.tboxuEscudo.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxuEscudo.Location = new System.Drawing.Point(413, 153);
+            this.tboxuEscudo.Location = new System.Drawing.Point(418, 145);
             this.tboxuEscudo.Name = "tboxuEscudo";
             this.tboxuEscudo.Size = new System.Drawing.Size(145, 23);
             this.tboxuEscudo.TabIndex = 83;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial", 12F);
-            label3.Location = new System.Drawing.Point(402, 119);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(170, 18);
-            label3.TabIndex = 84;
-            label3.Text = "Url con foto del escudo:";
-            // 
             // tboxsEstadio
             // 
             this.tboxsEstadio.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsEstadio.Location = new System.Drawing.Point(413, 62);
+            this.tboxsEstadio.Location = new System.Drawing.Point(418, 54);
             this.tboxsEstadio.Name = "tboxsEstadio";
             this.tboxsEstadio.Size = new System.Drawing.Size(145, 23);
             this.tboxsEstadio.TabIndex = 80;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial", 12F);
-            label2.Location = new System.Drawing.Point(364, 29);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(245, 18);
-            label2.TabIndex = 81;
-            label2.Text = "Nombre del estadio donde reside:";
-            // 
             // tboxsNombre
             // 
             this.tboxsNombre.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxsNombre.Location = new System.Drawing.Point(208, 62);
+            this.tboxsNombre.Location = new System.Drawing.Point(213, 54);
             this.tboxsNombre.Name = "tboxsNombre";
             this.tboxsNombre.Size = new System.Drawing.Size(145, 23);
             this.tboxsNombre.TabIndex = 79;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial", 12F);
-            label1.Location = new System.Drawing.Point(243, 29);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(68, 18);
-            label1.TabIndex = 78;
-            label1.Text = "Nombre:";
             // 
             // btnCargar
             // 
@@ -455,22 +451,34 @@
             this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCargar.ImageIndex = 6;
             this.btnCargar.ImageList = this.imageList1;
-            this.btnCargar.Location = new System.Drawing.Point(633, 428);
+            this.btnCargar.Location = new System.Drawing.Point(638, 420);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(153, 35);
             this.btnCargar.TabIndex = 77;
             this.btnCargar.Text = "Cargar Datos";
             this.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_ClickAsync);
             // 
             // prbBarra
             // 
-            this.prbBarra.Location = new System.Drawing.Point(18, 433);
+            this.prbBarra.Location = new System.Drawing.Point(23, 425);
             this.prbBarra.Name = "prbBarra";
             this.prbBarra.Size = new System.Drawing.Size(591, 25);
             this.prbBarra.Step = 3;
             this.prbBarra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.prbBarra.TabIndex = 76;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.ImageIndex = 8;
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(819, 465);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Jugadores";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // View
             // 
