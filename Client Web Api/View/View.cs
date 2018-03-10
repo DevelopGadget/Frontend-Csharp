@@ -153,7 +153,7 @@ namespace Client_Web_Api
                     btnBuscar.Enabled = false;
                     if (Equipos.Delete(tboxsId.Text))
                     {
-                        MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK,  MessageBoxIcon.Information);
                     }
                     else
                     {
