@@ -1,6 +1,7 @@
 ﻿using Client_Web_Api.Controller;
 using Client_Web_Api.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace Client_Web_Api
         }
 
         private EquiposController Equipos = new EquiposController();
+        private JugadoresController Jugadores = new JugadoresController();
 
         private void View_Load(object sender, EventArgs e)
         {
@@ -104,7 +106,7 @@ namespace Client_Web_Api
             {
                 if (ValTextEquipos())
                 {
-                    if(MessageBox.Show("¿Desea Modificar Este Documento?", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Desea Modificar Este Documento?", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
                         btnReg.Enabled = false;
@@ -129,48 +131,14 @@ namespace Client_Web_Api
             }
         }
 
-        private async void btnBuscar_ClickAsync(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (Equipos.AccesoInternet())
-            {
-                try
-                {
-                    ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
-                    btnReg.Enabled = false;
-                    textBox1.Text = "Datos Cargando Por Favor Espere...";
-                    btnBuscar.Enabled = false;
-                    if (string.IsNullOrEmpty(tboxsBuscar.Text))
-                    {
-                        MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (Tablas(await Equipos.Read())) Progress();
-                    }
-                    else if (await Equipos.Read(tboxsBuscar.Text) == null)
-                    {
-                        MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        List<EquiposModel> v = new List<EquiposModel>();
-                        v.Add(await Equipos.Read(tboxsBuscar.Text));
-                        if (Tablas(v)) Progress();
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (Tablas(await Equipos.Read())) Progress();
-                }
-                textBox1.Text = "Listo...";
-                ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
-                btnBuscar.Enabled = true;
-            }
-            else
-            {
-                Internet();
-            }
+            BuscarAsync(btnReg, btnMod, btnElim, cbSelec, tboxsBuscar.Text, true);
+        }
 
-           
-
+        private void btnBuscarJug_Click(object sender, EventArgs e)
+        {
+            BuscarAsync(btnRegJug, btnModJug, btnElimJug, cbSelecJug, tboxBuscarJug.Text, true);
         }
 
         private async void btnElim_ClickAsync(object sender, EventArgs e)
@@ -243,6 +211,7 @@ namespace Client_Web_Api
                     else
                     {
                         Tablas(await Equipos.Read());
+                        Tablas(await Jugadores.Read());
                         Progress();
                     }
 
@@ -289,7 +258,7 @@ namespace Client_Web_Api
                 }
                 foreach (JugadoresModel Ob in v1)
                 {
-                    tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad+"" });
+                    tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad + "" });
                 }
                 return true;
             }
@@ -313,7 +282,7 @@ namespace Client_Web_Api
             tboxBuscarJug.Text = null;
         }
 
-        private void ControlEn( Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, bool cond)
+        private void ControlEn(Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, bool cond)
         {
             btnMod.Enabled = cond;
             btnElim.Enabled = cond;
@@ -335,8 +304,8 @@ namespace Client_Web_Api
             }
             VistaPro(false);
             btnCargar.Enabled = true;
-            ControlEn(btnReg,btnMod,btnElim,cbSelec ,false);
-            ControlEn(btnRegJug,btnModJug,btnElimJug,cbSelecJug ,false);
+            ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
+            ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
             textBox1.Text = "Datos Cargados";
             btnCancelar.PerformClick();
             if (!Equipos.AccesoInternet())
@@ -356,7 +325,7 @@ namespace Client_Web_Api
             MessageBox.Show("Verifique Su Conexión A Internet ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void NoInt(Button btnReg, Button btnBuscar,  bool cond)
+        private void NoInt(Button btnReg, Button btnBuscar, bool cond)
         {
             btnReg.Enabled = cond;
             btnBuscar.Enabled = cond;
@@ -393,12 +362,12 @@ namespace Client_Web_Api
                 return true;
             }
         }
-        
+
         private bool ValTextJugadores()
         {
             if (string.IsNullOrEmpty(tboxsNombreJug.Text) || string.IsNullOrEmpty(tboxuNacionalidadJug.Text) ||
                 string.IsNullOrEmpty(tboxsPosicionJug.Text) || string.IsNullOrEmpty(tboxsNacionalidadJug.Text) ||
-                string.IsNullOrEmpty(tboxiEdadJug.Text) || Int32.Parse(comboClub.SelectedItem+"") == 0)
+                string.IsNullOrEmpty(tboxiEdadJug.Text) || Int32.Parse(comboClub.SelectedItem + "") == 0)
             {
                 MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -411,6 +380,66 @@ namespace Client_Web_Api
             else
             {
                 return true;
+            }
+        }
+
+        private async void BuscarAsync(Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, string Buscar, bool lista)
+        {
+            if (Equipos.AccesoInternet())
+            {
+                try
+                {
+                    bool Linull = false;
+                    ControlEn(btnReg, btnMod, btnElim, cbSelec, false);
+                    btnReg.Enabled = false;
+                    textBox1.Text = "Datos Cargando Por Favor Espere...";
+                    btnBuscar.Enabled = false;
+                    if (lista)
+                    {
+                        if (await Equipos.Read(Buscar) == null) Linull = true;
+                    }
+                    else
+                    {
+                        if (await Jugadores.Read(Buscar) == null) Linull = true;
+                    }
+                    if (string.IsNullOrEmpty(Buscar))
+                    {
+                        MessageBox.Show("Por Favor Ingrese Algun Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if(lista) if (Tablas(await Equipos.Read())) Progress();
+                        else if (Tablas(await Jugadores.Read())) Progress();
+                    }
+                    else if (Linull)
+                    {
+                        MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        if (lista)
+                        {
+                            List<EquiposModel> v = new List<EquiposModel>();
+                            v.Add(await Equipos.Read(Buscar));
+                            if (Tablas(v)) Progress();
+                        }
+                        else
+                        {
+                            List<JugadoresModel> v = new List<JugadoresModel>();
+                            v.Add(await Jugadores.Read(Buscar));
+                            if (Tablas(v)) Progress();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No Se Ha Encontrado Ninguna Coincidencia", "No Hay Coincidencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Tablas(await Jugadores.Read())) Progress();
+                }
+                textBox1.Text = "Listo...";
+                ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
+                btnBuscar.Enabled = true;
+            }
+            else
+            {
+                Internet();
             }
         }
     }
