@@ -15,6 +15,7 @@ namespace Client_Web_Api.Model
         public EquiposModel sEquipo { get; set; }
         public string sNacionalidad { get; set; }
         public string uNacionalidad { get; set; }
+
         public JugadoresModel(string sNombre, int sEdad, string sPosicion, EquiposModel sEquipo, string sNacionalidad, string uNacionalidad)
         {
             this.sNombre = sNombre;

@@ -61,6 +61,14 @@ namespace Client_Web_Api
             pbEscudo.Image = Properties.Resources.select;
         }
 
+        private void btnCancelarJug_Click(object sender, EventArgs e)
+        {
+            BorrarText(tboxIdJug, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
+            ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
+            pbClubJug.Image = Properties.Resources.select;
+            pbNacionalidadJug.Image = Properties.Resources.select;
+        }
+
         private async void btnReg_ClickAsync(object sender, EventArgs e)
         {
             if (Equipos.AccesoInternet())
