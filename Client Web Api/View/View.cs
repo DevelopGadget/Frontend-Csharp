@@ -118,7 +118,7 @@ namespace Client_Web_Api
                 if (ValTextJugadores())
                 {
                     if (Jugadores.Create(new JugadoresModel(tboxsNombreJug.Text.ToUpper(), Int16.Parse(tboxiEdadJug.Text), tboxsPosicionJug.Text.ToUpper(),
-                        await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text))))
+                        await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
                     {
                         MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -337,7 +337,7 @@ namespace Client_Web_Api
                 }
                 foreach (JugadoresModel Ob in v1)
                 {
-                    tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad + "" });
+                    tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad + "" , Ob.sEquipo.sNombre});
                 }
                 listaComboAsync();
                 return true;
@@ -360,6 +360,7 @@ namespace Client_Web_Api
             Buscar.Text = null;
             Url3.Text = null;
             tboxBuscarJug.Text = null;
+            tboxuJugador.Text = null;
         }
 
         private void ControlEn(Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, bool cond)
@@ -445,21 +446,29 @@ namespace Client_Web_Api
 
         private bool ValTextJugadores()
         {
-            if (string.IsNullOrEmpty(tboxsNombreJug.Text) || string.IsNullOrEmpty(tboxuNacionalidadJug.Text) ||
-                string.IsNullOrEmpty(tboxsPosicionJug.Text) || string.IsNullOrEmpty(tboxsNacionalidadJug.Text) ||
-                string.IsNullOrEmpty(tboxiEdadJug.Text) || Int32.Parse(comboClub.SelectedItem + "") == 0)
+            try
             {
-                MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (string.IsNullOrEmpty(tboxsNombreJug.Text) || string.IsNullOrEmpty(tboxuNacionalidadJug.Text) ||
+                    string.IsNullOrEmpty(tboxsPosicionJug.Text) || string.IsNullOrEmpty(tboxsNacionalidadJug.Text) ||
+                    string.IsNullOrEmpty(tboxiEdadJug.Text) || comboClub.SelectedIndex == 0 || string.IsNullOrEmpty(tboxuJugador.Text))
+                {
+                    MessageBox.Show("Por Favor Todos Los Campos Deben Ser Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else if (!Jugadores.Validar(tboxuNacionalidadJug.Text) || !Jugadores.Validar(tboxuJugador.Text))
+                {
+                    MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else if (!Equipos.Validar(tboxuNacionalidadJug.Text))
+            catch (Exception)
             {
-                MessageBox.Show("Por Favor Digite Url Validas De Imagenes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por Favor Verifique Los Datos Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }
-            else
-            {
-                return true;
             }
         }
 
