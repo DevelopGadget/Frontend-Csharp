@@ -52,7 +52,7 @@ namespace Client_Web_Api.Controller
                 using (client = new HttpClient())
                 {
                     Client();
-                    resp = await client.GetAsync("api/Equipos");
+                    resp = await client.GetAsync("api/Jugadores");
                     if (resp.IsSuccessStatusCode)
                     {
                         var json = await resp.Content.ReadAsStringAsync();
@@ -81,7 +81,7 @@ namespace Client_Web_Api.Controller
                 using (client = new HttpClient())
                 {
                     Client();
-                    resp = await client.GetAsync("api/Equipos/" + Id);
+                    resp = await client.GetAsync("api/Jugadores/" + Id);
                     if (resp.IsSuccessStatusCode)
                     {
                         var json = await resp.Content.ReadAsStringAsync();

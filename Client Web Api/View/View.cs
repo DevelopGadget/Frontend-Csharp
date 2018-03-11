@@ -25,6 +25,7 @@ namespace Client_Web_Api
                 textBox1.Text = "Datos Cargando Por Favor Espere...";
                 ProgressAsync();
                 tboxsNombre.Focus();
+                listaComboAsync();
             }
             else
             {
@@ -52,6 +53,13 @@ namespace Client_Web_Api
         private void TabaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Equipos.AccesoInternet()) CheckEquipo();
+            else Internet();
+        }
+
+
+        private void tableJug_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Jugadores.AccesoInternet()) CheckJugadores();
             else Internet();
         }
 
@@ -97,7 +105,34 @@ namespace Client_Web_Api
             {
                 Internet();
             }
+        }
 
+        private async void btnRegJug_ClickAsync(object sender, EventArgs e)
+        {
+            if (Jugadores.AccesoInternet())
+            {
+                ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
+                btnRegJug.Enabled = false;
+                textBox1.Text = "Registrando Por Favor Espere...";
+                btnBuscarJug.Enabled = false;
+                if (ValTextJugadores())
+                {
+                    if (Jugadores.Create(new JugadoresModel(tboxsNombreJug.Text.ToUpper(), Int16.Parse(tboxiEdadJug.Text), tboxsPosicionJug.Text.ToUpper(),
+                        await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text))))
+                    {
+                        MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                if (Tablas(await Jugadores.Read())) Progress();
+            }
+            else
+            {
+                Internet();
+            }
         }
 
         private async void btnMod_ClickAsync(object sender, EventArgs e)
@@ -168,6 +203,27 @@ namespace Client_Web_Api
             }
         }
 
+        private void comboClub_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboClub.SelectedIndex != 0)
+            {
+                string h = "";
+                for (int i = 0; i < comboClub.SelectedItem.ToString().Length; i++)
+                {
+                    if (comboClub.SelectedItem.ToString()[i] == ',')
+                    {
+                        for (int b = i+1; b < comboClub.SelectedItem.ToString().Length; b++)
+                        {
+                            h += comboClub.SelectedItem.ToString()[b];
+                        }
+                        tboxIdJug.Text = h;
+                        Clipboard.SetText(h);
+                        break;
+                    }
+                }
+            } 
+        }
+
         private void CheckEquipo()
         {
             for (int i = 0; i < Equipos.Equipos.Count; i++)
@@ -182,6 +238,29 @@ namespace Client_Web_Api
                     tboxsEstadio.Text = Equipos.Equipos[i].sEstadio;
                     tboxuEstadio.Text = Equipos.Equipos[i].uEstadio.ToString();
                     tboxuEscudo.Text = Equipos.Equipos[i].uEscudo.ToString();
+                    ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
+                    MessageBox.Show("Id Copiado Al Portapapeles", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+            }
+        }
+
+
+        private void CheckJugadores()
+        {
+            for (int i = 0; i < Jugadores.Jugadores.Count; i++)
+            {
+                if (tableJug.CurrentRow.Cells[0].Value.Equals(Jugadores.Jugadores[i].Id))
+                {
+                    Clipboard.SetText(Jugadores.Jugadores[i].Id);
+                    pbNacionalidadJug.ImageLocation = Jugadores.Jugadores[i].uNacionalidad.ToString();
+                    pbClubJug.ImageLocation = Jugadores.Jugadores[i].sEquipo.uEscudo.ToString();
+                    tboxIdJug.Text = Jugadores.Jugadores[i].Id;
+                    tboxsNombreJug.Text = Jugadores.Jugadores[i].sNombre;
+                    tboxiEdadJug.Text = Jugadores.Jugadores[i].iEdad.ToString();
+                    tboxsPosicionJug.Text = Jugadores.Jugadores[i].sPosicion.ToString();
+                    tboxuNacionalidadJug.Text = Jugadores.Jugadores[i].uNacionalidad.ToString();
+                    tboxsNacionalidadJug.Text = Jugadores.Jugadores[i].sNacionalidad.ToString();
                     ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
                     MessageBox.Show("Id Copiado Al Portapapeles", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
@@ -260,6 +339,7 @@ namespace Client_Web_Api
                 {
                     tableJug.Rows.Add(new String[] { Ob.Id, Ob.sNombre, Ob.sPosicion, Ob.iEdad + "" });
                 }
+                listaComboAsync();
                 return true;
             }
             catch (Exception)
@@ -442,5 +522,17 @@ namespace Client_Web_Api
                 Internet();
             }
         }
+
+        private async void listaComboAsync()
+        {
+            comboClub.Items.Clear();
+            comboClub.Items.Add("Seleccione Un Club");
+            comboClub.SelectedIndex = 0;
+            foreach (EquiposModel ob in await Equipos.Read())
+            {
+                comboClub.Items.Add(ob.sNombre+","+ob.Id);
+            }
+        }
+
     }
 }
