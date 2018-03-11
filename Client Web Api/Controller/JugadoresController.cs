@@ -14,7 +14,7 @@ namespace Client_Web_Api.Controller
     class JugadoresController
     {
         public List<JugadoresModel> Jugadores { get; set; }
-        private string BaseAdress = "http://web-api-net.a3c1.starter-us-west-1.openshiftapps.com/";
+        private string BaseAdress = "https://api-net.herokuapp.com/";
         private HttpResponseMessage resp { get; set; }
         private HttpClient client { get; set; }
 
