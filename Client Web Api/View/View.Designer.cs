@@ -665,6 +665,7 @@
             this.btnElimJug.Text = "Eliminar";
             this.btnElimJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElimJug.UseVisualStyleBackColor = true;
+            this.btnElimJug.Click += new System.EventHandler(this.btnElimJug_ClickAsync);
             // 
             // btnModJug
             // 

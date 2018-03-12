@@ -233,6 +233,32 @@ namespace Client_Web_Api
             }
         }
 
+        private async void btnElimJug_ClickAsync(object sender, EventArgs e)
+        {
+            if (Jugadores.AccesoInternet())
+            {
+                if (MessageBox.Show("¿Desea Eliminar Este Documento?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
+                    btnRegJug.Enabled = false;
+                    textBox1.Text = "Eliminando Por Favor Espere...";
+                    btnBuscarJug.Enabled = false;
+                    if (Jugadores.Delete(tboxIdJug.Text))
+                    {
+                        MessageBox.Show("Se Ha Eliminado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                if (Tablas(await Jugadores.Read())) Progress();
+            }
+            else
+            {
+                Internet();
+            }
+        }
         private void comboClub_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboClub.SelectedIndex != 0)
