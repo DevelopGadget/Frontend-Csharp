@@ -166,6 +166,36 @@ namespace Client_Web_Api
             }
         }
 
+        private async void btnModJug_ClickAsync(object sender, EventArgs e)
+        {
+            if (Jugadores.AccesoInternet())
+            {
+                if (ValTextJugadores())
+                {
+                    if (MessageBox.Show("¿Desea Modificar Este Documento?", "Modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
+                        btnRegJug.Enabled = false;
+                        textBox1.Text = "Modificando Por Favor Espere...";
+                        btnBuscarJug.Enabled = false;
+                        if (Jugadores.Update(tboxIdJug.Text, new JugadoresModel(tboxsNombreJug.Text.ToUpper(), Int16.Parse(tboxiEdadJug.Text), tboxsPosicionJug.Text.ToUpper(),
+                                                                await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
+                        {
+                            MessageBox.Show("Se Ha Modificado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha Ocurrido Un Error Vuelva A Intentar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                if (Tablas(await Jugadores.Read())) Progress();
+            }
+            else
+            {
+                Internet();
+            }
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             BuscarAsync(btnReg, btnMod, btnElim, cbSelec, tboxsBuscar.Text, true);
@@ -542,6 +572,5 @@ namespace Client_Web_Api
                 comboClub.Items.Add(ob.sNombre+","+ob.Id);
             }
         }
-
     }
 }

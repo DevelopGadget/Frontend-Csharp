@@ -63,6 +63,9 @@
             this.cbSelec = new System.Windows.Forms.CheckBox();
             this.btnReg = new System.Windows.Forms.Button();
             this.TabaDatos = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbEscudo = new System.Windows.Forms.PictureBox();
             this.pbEstadio = new System.Windows.Forms.PictureBox();
             this.tboxuEstadio = new System.Windows.Forms.TextBox();
@@ -82,6 +85,11 @@
             this.cbSelecJug = new System.Windows.Forms.CheckBox();
             this.btnRegJug = new System.Windows.Forms.Button();
             this.tableJug = new System.Windows.Forms.DataGridView();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Club = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbNacionalidadJug = new System.Windows.Forms.PictureBox();
             this.pbClubJug = new System.Windows.Forms.PictureBox();
             this.tboxuNacionalidadJug = new System.Windows.Forms.TextBox();
@@ -91,14 +99,6 @@
             this.textBox1 = new System.Windows.Forms.Label();
             this.btnCargar = new System.Windows.Forms.Button();
             this.prbBarra = new System.Windows.Forms.ProgressBar();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Club = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label25 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -493,6 +493,30 @@
             this.TabaDatos.TabIndex = 91;
             this.TabaDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TabaDatos_CellContentClick);
             // 
+            // Id
+            // 
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 180;
+            // 
+            // Estadio
+            // 
+            this.Estadio.Frozen = true;
+            this.Estadio.HeaderText = "Estadio";
+            this.Estadio.Name = "Estadio";
+            this.Estadio.ReadOnly = true;
+            this.Estadio.Width = 180;
+            // 
             // pbEscudo
             // 
             this.pbEscudo.Image = ((System.Drawing.Image)(resources.GetObject("pbEscudo.Image")));
@@ -656,6 +680,7 @@
             this.btnModJug.Text = "Modificar";
             this.btnModJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModJug.UseVisualStyleBackColor = true;
+            this.btnModJug.Click += new System.EventHandler(this.btnModJug_ClickAsync);
             // 
             // tboxBuscarJug
             // 
@@ -748,6 +773,53 @@
             this.tableJug.TabIndex = 113;
             this.tableJug.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableJug_CellContentClick);
             // 
+            // cId
+            // 
+            this.cId.Frozen = true;
+            this.cId.HeaderText = "cId";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn3.Frozen = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Posición";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 110;
+            // 
+            // Edad
+            // 
+            this.Edad.Frozen = true;
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.ReadOnly = true;
+            this.Edad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edad.Width = 50;
+            // 
+            // Club
+            // 
+            this.Club.Frozen = true;
+            this.Club.HeaderText = "Club";
+            this.Club.Name = "Club";
+            this.Club.ReadOnly = true;
+            this.Club.Width = 110;
+            // 
             // pbNacionalidadJug
             // 
             this.pbNacionalidadJug.Image = ((System.Drawing.Image)(resources.GetObject("pbNacionalidadJug.Image")));
@@ -837,77 +909,6 @@
             this.prbBarra.Step = 3;
             this.prbBarra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.prbBarra.TabIndex = 101;
-            // 
-            // Id
-            // 
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 180;
-            // 
-            // Estadio
-            // 
-            this.Estadio.Frozen = true;
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            this.Estadio.ReadOnly = true;
-            this.Estadio.Width = 180;
-            // 
-            // cId
-            // 
-            this.cId.Frozen = true;
-            this.cId.HeaderText = "cId";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Posición";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.Width = 110;
-            // 
-            // Edad
-            // 
-            this.Edad.Frozen = true;
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            this.Edad.ReadOnly = true;
-            this.Edad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edad.Width = 50;
-            // 
-            // Club
-            // 
-            this.Club.Frozen = true;
-            this.Club.HeaderText = "Club";
-            this.Club.Name = "Club";
-            this.Club.ReadOnly = true;
-            this.Club.Width = 110;
             // 
             // View
             // 
