@@ -47,10 +47,10 @@
             System.Windows.Forms.Label label15;
             System.Windows.Forms.Label label16;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Pestañas = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -81,7 +81,7 @@
             this.btnModJug = new System.Windows.Forms.Button();
             this.tboxBuscarJug = new System.Windows.Forms.TextBox();
             this.btnBuscarJug = new System.Windows.Forms.Button();
-            this.tboxIdJug = new System.Windows.Forms.TextBox();
+            this.tboxIdEquipo = new System.Windows.Forms.TextBox();
             this.cbSelecJug = new System.Windows.Forms.CheckBox();
             this.btnRegJug = new System.Windows.Forms.Button();
             this.tableJug = new System.Windows.Forms.DataGridView();
@@ -91,7 +91,7 @@
             this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Club = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbNacionalidadJug = new System.Windows.Forms.PictureBox();
-            this.pbClubJug = new System.Windows.Forms.PictureBox();
+            this.pbJugador = new System.Windows.Forms.PictureBox();
             this.tboxuNacionalidadJug = new System.Windows.Forms.TextBox();
             this.tboxsNacionalidadJug = new System.Windows.Forms.TextBox();
             this.tboxsPosicionJug = new System.Windows.Forms.TextBox();
@@ -99,6 +99,7 @@
             this.textBox1 = new System.Windows.Forms.Label();
             this.btnCargar = new System.Windows.Forms.Button();
             this.prbBarra = new System.Windows.Forms.ProgressBar();
+            this.tboxIdJug = new System.Windows.Forms.TextBox();
             label25 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -124,7 +125,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableJug)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNacionalidadJug)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClubJug)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJugador)).BeginInit();
             this.SuspendLayout();
             // 
             // label25
@@ -203,9 +204,9 @@
             label7.Font = new System.Drawing.Font("Arial", 12F);
             label7.Location = new System.Drawing.Point(39, 21);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(121, 18);
+            label7.Size = new System.Drawing.Size(129, 18);
             label7.TabIndex = 116;
-            label7.Text = "Id seleccionado:";
+            label7.Text = "Id seleccionados:";
             // 
             // label8
             // 
@@ -219,10 +220,11 @@
             // 
             // label9
             // 
+            label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Arial", 12F);
-            label9.Location = new System.Drawing.Point(413, 205);
+            label9.Location = new System.Drawing.Point(419, 223);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(142, 39);
+            label9.Size = new System.Drawing.Size(126, 18);
             label9.TabIndex = 111;
             label9.Text = "Foto del Jugador";
             label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -323,6 +325,7 @@
             this.Pestañas.SelectedIndex = 0;
             this.Pestañas.Size = new System.Drawing.Size(827, 458);
             this.Pestañas.TabIndex = 0;
+            this.Pestañas.SelectedIndexChanged += new System.EventHandler(this.Pestañas_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -470,14 +473,14 @@
             this.TabaDatos.AllowUserToAddRows = false;
             this.TabaDatos.AllowUserToDeleteRows = false;
             this.TabaDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TabaDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TabaDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.TabaDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TabaDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -573,6 +576,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tboxIdJug);
             this.tabPage2.Controls.Add(this.tboxuJugador);
             this.tabPage2.Controls.Add(label16);
             this.tabPage2.Controls.Add(label15);
@@ -585,14 +589,14 @@
             this.tabPage2.Controls.Add(this.tboxBuscarJug);
             this.tabPage2.Controls.Add(this.btnBuscarJug);
             this.tabPage2.Controls.Add(label7);
-            this.tabPage2.Controls.Add(this.tboxIdJug);
+            this.tabPage2.Controls.Add(this.tboxIdEquipo);
             this.tabPage2.Controls.Add(this.cbSelecJug);
             this.tabPage2.Controls.Add(this.btnRegJug);
             this.tabPage2.Controls.Add(this.tableJug);
             this.tabPage2.Controls.Add(label8);
             this.tabPage2.Controls.Add(label9);
             this.tabPage2.Controls.Add(this.pbNacionalidadJug);
-            this.tabPage2.Controls.Add(this.pbClubJug);
+            this.tabPage2.Controls.Add(this.pbJugador);
             this.tabPage2.Controls.Add(this.tboxuNacionalidadJug);
             this.tabPage2.Controls.Add(label10);
             this.tabPage2.Controls.Add(this.tboxsNacionalidadJug);
@@ -616,7 +620,7 @@
             this.tboxuJugador.Location = new System.Drawing.Point(30, 145);
             this.tboxuJugador.Name = "tboxuJugador";
             this.tboxuJugador.Size = new System.Drawing.Size(145, 23);
-            this.tboxuJugador.TabIndex = 126;
+            this.tboxuJugador.TabIndex = 3;
             // 
             // comboClub
             // 
@@ -625,7 +629,7 @@
             this.comboClub.Location = new System.Drawing.Point(554, 147);
             this.comboClub.Name = "comboClub";
             this.comboClub.Size = new System.Drawing.Size(121, 21);
-            this.comboClub.TabIndex = 124;
+            this.comboClub.TabIndex = 6;
             this.comboClub.SelectedIndexChanged += new System.EventHandler(this.comboClub_SelectedIndexChanged);
             // 
             // tboxiEdadJug
@@ -634,7 +638,7 @@
             this.tboxiEdadJug.Location = new System.Drawing.Point(569, 52);
             this.tboxiEdadJug.Name = "tboxiEdadJug";
             this.tboxiEdadJug.Size = new System.Drawing.Size(80, 23);
-            this.tboxiEdadJug.TabIndex = 122;
+            this.tboxiEdadJug.TabIndex = 2;
             // 
             // btnCancelarJug
             // 
@@ -661,7 +665,7 @@
             this.btnElimJug.Location = new System.Drawing.Point(681, 30);
             this.btnElimJug.Name = "btnElimJug";
             this.btnElimJug.Size = new System.Drawing.Size(117, 45);
-            this.btnElimJug.TabIndex = 120;
+            this.btnElimJug.TabIndex = 9;
             this.btnElimJug.Text = "Eliminar";
             this.btnElimJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElimJug.UseVisualStyleBackColor = true;
@@ -677,7 +681,7 @@
             this.btnModJug.Location = new System.Drawing.Point(681, 82);
             this.btnModJug.Name = "btnModJug";
             this.btnModJug.Size = new System.Drawing.Size(117, 45);
-            this.btnModJug.TabIndex = 119;
+            this.btnModJug.TabIndex = 8;
             this.btnModJug.Text = "Modificar";
             this.btnModJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModJug.UseVisualStyleBackColor = true;
@@ -707,14 +711,14 @@
             this.btnBuscarJug.UseVisualStyleBackColor = true;
             this.btnBuscarJug.Click += new System.EventHandler(this.btnBuscarJug_Click);
             // 
-            // tboxIdJug
+            // tboxIdEquipo
             // 
-            this.tboxIdJug.Enabled = false;
-            this.tboxIdJug.Font = new System.Drawing.Font("Arial", 10F);
-            this.tboxIdJug.Location = new System.Drawing.Point(28, 55);
-            this.tboxIdJug.Name = "tboxIdJug";
-            this.tboxIdJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxIdJug.TabIndex = 115;
+            this.tboxIdEquipo.Enabled = false;
+            this.tboxIdEquipo.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxIdEquipo.Location = new System.Drawing.Point(28, 55);
+            this.tboxIdEquipo.Name = "tboxIdEquipo";
+            this.tboxIdEquipo.Size = new System.Drawing.Size(145, 23);
+            this.tboxIdEquipo.TabIndex = 115;
             // 
             // cbSelecJug
             // 
@@ -738,7 +742,7 @@
             this.btnRegJug.Location = new System.Drawing.Point(681, 133);
             this.btnRegJug.Name = "btnRegJug";
             this.btnRegJug.Size = new System.Drawing.Size(117, 45);
-            this.btnRegJug.TabIndex = 107;
+            this.btnRegJug.TabIndex = 7;
             this.btnRegJug.Text = "Registrar";
             this.btnRegJug.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegJug.UseVisualStyleBackColor = true;
@@ -749,14 +753,14 @@
             this.tableJug.AllowUserToAddRows = false;
             this.tableJug.AllowUserToDeleteRows = false;
             this.tableJug.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableJug.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableJug.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.tableJug.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableJug.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cId,
@@ -784,8 +788,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -795,8 +799,8 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10F);
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 10F);
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn3.Frozen = true;
             this.dataGridViewTextBoxColumn3.HeaderText = "Posición";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -832,16 +836,16 @@
             this.pbNacionalidadJug.TabIndex = 110;
             this.pbNacionalidadJug.TabStop = false;
             // 
-            // pbClubJug
+            // pbJugador
             // 
-            this.pbClubJug.Image = ((System.Drawing.Image)(resources.GetObject("pbClubJug.Image")));
-            this.pbClubJug.InitialImage = null;
-            this.pbClubJug.Location = new System.Drawing.Point(391, 251);
-            this.pbClubJug.Name = "pbClubJug";
-            this.pbClubJug.Size = new System.Drawing.Size(191, 149);
-            this.pbClubJug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbClubJug.TabIndex = 109;
-            this.pbClubJug.TabStop = false;
+            this.pbJugador.Image = ((System.Drawing.Image)(resources.GetObject("pbJugador.Image")));
+            this.pbJugador.InitialImage = null;
+            this.pbJugador.Location = new System.Drawing.Point(391, 251);
+            this.pbJugador.Name = "pbJugador";
+            this.pbJugador.Size = new System.Drawing.Size(191, 149);
+            this.pbJugador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbJugador.TabIndex = 109;
+            this.pbJugador.TabStop = false;
             // 
             // tboxuNacionalidadJug
             // 
@@ -849,7 +853,7 @@
             this.tboxuNacionalidadJug.Location = new System.Drawing.Point(211, 145);
             this.tboxuNacionalidadJug.Name = "tboxuNacionalidadJug";
             this.tboxuNacionalidadJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxuNacionalidadJug.TabIndex = 104;
+            this.tboxuNacionalidadJug.TabIndex = 4;
             // 
             // tboxsNacionalidadJug
             // 
@@ -857,7 +861,7 @@
             this.tboxsNacionalidadJug.Location = new System.Drawing.Point(382, 146);
             this.tboxsNacionalidadJug.Name = "tboxsNacionalidadJug";
             this.tboxsNacionalidadJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsNacionalidadJug.TabIndex = 105;
+            this.tboxsNacionalidadJug.TabIndex = 5;
             // 
             // tboxsPosicionJug
             // 
@@ -865,7 +869,7 @@
             this.tboxsPosicionJug.Location = new System.Drawing.Point(382, 55);
             this.tboxsPosicionJug.Name = "tboxsPosicionJug";
             this.tboxsPosicionJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsPosicionJug.TabIndex = 102;
+            this.tboxsPosicionJug.TabIndex = 1;
             // 
             // tboxsNombreJug
             // 
@@ -873,7 +877,7 @@
             this.tboxsNombreJug.Location = new System.Drawing.Point(211, 54);
             this.tboxsNombreJug.Name = "tboxsNombreJug";
             this.tboxsNombreJug.Size = new System.Drawing.Size(145, 23);
-            this.tboxsNombreJug.TabIndex = 101;
+            this.tboxsNombreJug.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -911,6 +915,15 @@
             this.prbBarra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.prbBarra.TabIndex = 101;
             // 
+            // tboxIdJug
+            // 
+            this.tboxIdJug.Enabled = false;
+            this.tboxIdJug.Font = new System.Drawing.Font("Arial", 10F);
+            this.tboxIdJug.Location = new System.Drawing.Point(28, 84);
+            this.tboxIdJug.Name = "tboxIdJug";
+            this.tboxIdJug.Size = new System.Drawing.Size(145, 23);
+            this.tboxIdJug.TabIndex = 128;
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,7 +951,7 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableJug)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNacionalidadJug)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClubJug)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJugador)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -971,12 +984,12 @@
         private System.Windows.Forms.Button btnModJug;
         private System.Windows.Forms.TextBox tboxBuscarJug;
         private System.Windows.Forms.Button btnBuscarJug;
-        private System.Windows.Forms.TextBox tboxIdJug;
+        private System.Windows.Forms.TextBox tboxIdEquipo;
         private System.Windows.Forms.CheckBox cbSelecJug;
         private System.Windows.Forms.Button btnRegJug;
         private System.Windows.Forms.DataGridView tableJug;
         private System.Windows.Forms.PictureBox pbNacionalidadJug;
-        private System.Windows.Forms.PictureBox pbClubJug;
+        private System.Windows.Forms.PictureBox pbJugador;
         private System.Windows.Forms.TextBox tboxuNacionalidadJug;
         private System.Windows.Forms.TextBox tboxsNacionalidadJug;
         private System.Windows.Forms.TextBox tboxsPosicionJug;
@@ -992,6 +1005,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Club;
+        private System.Windows.Forms.TextBox tboxIdJug;
     }
 }
 

@@ -25,7 +25,6 @@ namespace Client_Web_Api
                 textBox1.Text = "Datos Cargando Por Favor Espere...";
                 ProgressAsync();
                 tboxsNombre.Focus();
-                listaComboAsync();
             }
             else
             {
@@ -40,8 +39,9 @@ namespace Client_Web_Api
             {
                 textBox1.Text = "Datos Cargando Por Favor Espere...";
                 btnCargar.Enabled = false;
-                if (Tablas(await Equipos.Read())) Progress();
+                if (Tablas(await Equipos.Read()) && Tablas(await Jugadores.Read())) Progress();
                 btnCancelar.PerformClick();
+                btnCancelarJug.PerformClick();
             }
             else
             {
@@ -73,10 +73,11 @@ namespace Client_Web_Api
 
         private void btnCancelarJug_Click(object sender, EventArgs e)
         {
-            BorrarText(tboxIdJug, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
+            BorrarText(tboxIdEquipo, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
             ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
-            pbClubJug.Image = Properties.Resources.select;
+            pbJugador.Image = Properties.Resources.select;
             pbNacionalidadJug.Image = Properties.Resources.select;
+            listaComboAsync();
         }
 
         private async void btnReg_ClickAsync(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace Client_Web_Api
                 if (ValTextJugadores())
                 {
                     if (Jugadores.Create(new JugadoresModel(tboxsNombreJug.Text.ToUpper(), Int16.Parse(tboxiEdadJug.Text), tboxsPosicionJug.Text.ToUpper(),
-                        await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
+                        await Equipos.Read(tboxIdEquipo.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
                     {
                         MessageBox.Show("Se Ha Registrado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -179,7 +180,7 @@ namespace Client_Web_Api
                         textBox1.Text = "Modificando Por Favor Espere...";
                         btnBuscarJug.Enabled = false;
                         if (Jugadores.Update(tboxIdJug.Text, new JugadoresModel(tboxsNombreJug.Text.ToUpper(), Int16.Parse(tboxiEdadJug.Text), tboxsPosicionJug.Text.ToUpper(),
-                                                                await Equipos.Read(tboxIdJug.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
+                                                                await Equipos.Read(tboxIdEquipo.Text), tboxsNacionalidadJug.Text.ToUpper(), new Uri(tboxuNacionalidadJug.Text), new Uri(tboxuJugador.Text))))
                         {
                             MessageBox.Show("Se Ha Modificado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -272,7 +273,7 @@ namespace Client_Web_Api
                         {
                             h += comboClub.SelectedItem.ToString()[b];
                         }
-                        tboxIdJug.Text = h;
+                        tboxIdEquipo.Text = h;
                         Clipboard.SetText(h);
                         break;
                     }
@@ -310,14 +311,16 @@ namespace Client_Web_Api
                 {
                     Clipboard.SetText(Jugadores.Jugadores[i].Id);
                     pbNacionalidadJug.ImageLocation = Jugadores.Jugadores[i].uNacionalidad.ToString();
-                    pbClubJug.ImageLocation = Jugadores.Jugadores[i].sEquipo.uEscudo.ToString();
+                    pbJugador.ImageLocation = Jugadores.Jugadores[i].uJugador.ToString();
                     tboxIdJug.Text = Jugadores.Jugadores[i].Id;
                     tboxsNombreJug.Text = Jugadores.Jugadores[i].sNombre;
                     tboxiEdadJug.Text = Jugadores.Jugadores[i].iEdad.ToString();
                     tboxsPosicionJug.Text = Jugadores.Jugadores[i].sPosicion.ToString();
                     tboxuNacionalidadJug.Text = Jugadores.Jugadores[i].uNacionalidad.ToString();
                     tboxsNacionalidadJug.Text = Jugadores.Jugadores[i].sNacionalidad.ToString();
-                    ControlEn(btnReg, btnMod, btnElim, cbSelec, true);
+                    tboxuJugador.Text = Jugadores.Jugadores[i].uJugador.ToString();
+                    ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, true);
+                    SelectItem(Jugadores.Jugadores[i].sEquipo.sNombre+","+ Jugadores.Jugadores[i].sEquipo.Id);
                     MessageBox.Show("Id Copiado Al Portapapeles", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 }
@@ -347,6 +350,7 @@ namespace Client_Web_Api
                     {
                         Tablas(await Equipos.Read());
                         Tablas(await Jugadores.Read());
+                        listaComboAsync();
                         Progress();
                     }
 
@@ -417,6 +421,7 @@ namespace Client_Web_Api
             Url3.Text = null;
             tboxBuscarJug.Text = null;
             tboxuJugador.Text = null;
+            tboxIdJug.Text = null;
         }
 
         private void ControlEn(Button btnReg, Button btnMod, Button btnElim, CheckBox cbSelec, bool cond)
@@ -432,7 +437,7 @@ namespace Client_Web_Api
         {
             VistaPro(true);
             BorrarText(tboxsId, tboxsNombre, tboxsEstadio, tboxuEscudo, tboxuEstadio, tboxsBuscar);
-            BorrarText(tboxIdJug, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
+            BorrarText(tboxIdEquipo, tboxsNombreJug, tboxiEdadJug, tboxsPosicionJug, tboxuNacionalidadJug, tboxsNacionalidadJug);
             prbBarra.Value = 0;
             for (int i = 0; i < 100; i++)
             {
@@ -445,6 +450,7 @@ namespace Client_Web_Api
             ControlEn(btnRegJug, btnModJug, btnElimJug, cbSelecJug, false);
             textBox1.Text = "Datos Cargados";
             btnCancelar.PerformClick();
+            btnCancelarJug.PerformClick();
             if (!Equipos.AccesoInternet())
             {
                 Internet();
@@ -596,6 +602,39 @@ namespace Client_Web_Api
             foreach (EquiposModel ob in await Equipos.Read())
             {
                 comboClub.Items.Add(ob.sNombre+","+ob.Id);
+            }
+        }
+
+        private void SelectItem(string equipo)
+        {
+            for(int i = 0; i < comboClub.Items.Count; i++)
+            {
+                if (comboClub.Items[i].Equals(equipo))
+                {
+                    comboClub.SelectedItem = equipo;
+                    break;
+                }
+            }
+        }
+
+        private void Pestañas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (Equipos.AccesoInternet())
+            {
+                if(Pestañas.SelectedIndex == 0)
+                {
+                    tboxsNombre.Focus();                }
+                else
+                {
+                    tboxsNombreJug.Focus();
+                }
+                textBox1.Text = "Datos Cargando Por Favor Espere...";
+                btnCargar.PerformClick();
+            }
+            else
+            {
+                Internet();
             }
         }
     }
